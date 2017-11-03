@@ -11,7 +11,7 @@
  6. praktikum: Json andmeformaat ja märgendatud tekstide salvestamine failidesse / laadimine failidest. Ajaväljendite tuvastamine ja visualiseerimine
  7. praktikum: XML andmeformaat ja serialiseerimine. Osalausestamine ja verbiahelate tuvastamine. Märgenduskihtide visualiseerimine
  8. praktikum: Wordnet. Heatmap'i loomine. Word2vec. Pdf-i lugemine Pythonis
- 9. praktikum:
+ 9. praktikum: Süntaktiline analüüs. HTML sisendi lugemine
  10. praktikum:
  11. praktikum:
  12. praktikum:
