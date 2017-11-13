@@ -12,6 +12,6 @@
  7. praktikum: XML andmeformaat ja serialiseerimine. Osalausestamine ja verbiahelate tuvastamine. Märgenduskihtide visualiseerimine
  8. praktikum: Wordnet. Heatmap'i loomine. Word2vec. Pdf-i lugemine Pythonis
  9. praktikum: Süntaktiline analüüs. HTML sisendi lugemine
- 10. praktikum:
+ 10. praktikum: Veebiga suhtlemine ja tekstiandmete kogumine veebist
  11. praktikum:
  12. praktikum:
