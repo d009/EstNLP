@@ -13,5 +13,5 @@
  8. praktikum: Wordnet. Heatmap'i loomine. Word2vec. Pdf-i lugemine Pythonis
  9. praktikum: Süntaktiline analüüs. HTML sisendi lugemine
  10. praktikum: Veebiga suhtlemine ja tekstiandmete kogumine veebist
- 11. praktikum:
+ 11. praktikum: Info eraldamine. Suurte andmetega töötamine. Twitter'i säutsude analüüs. Vikipeedia artiklite töötlus. Grammatikad EstNLTK-s
  12. praktikum:
