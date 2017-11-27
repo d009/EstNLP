@@ -14,4 +14,4 @@
  9. praktikum: Süntaktiline analüüs. HTML sisendi lugemine
  10. praktikum: Veebiga suhtlemine ja tekstiandmete kogumine veebist
  11. praktikum: Info eraldamine. Suurte andmetega töötamine. Twitter'i säutsude analüüs. Vikipeedia artiklite töötlus. Grammatikad EstNLTK-s
- 12. praktikum:
+ 12. praktikum: Dokumentide vektoresitus, klasterdamine ja visualiseerimine. Optilise tekstituvastuse katsetamine
