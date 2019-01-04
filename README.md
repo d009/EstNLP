@@ -4,7 +4,7 @@
 
 
  1. praktikum: Pythoni virtuaalkeskkonnad, Jupyter Notebook ja Pythoni baasteadmiste kordamine
- 2. praktikum: EstNLTK installimine. Teksti segmenteerimine, morfoloogiline analüüs, õigekirjakontroll. Sõnapilved
+ 2. praktikum: Teksti segmenteerimine, morfoloogiline analüüs, õigekirjakontroll. Sõnapilved
  3. praktikum: Morfoloogilise analüüsi erijuhud: korpusepõhine ühestamine, analüüs kasutajasõnastiku abil, Giellatekno märgendid
  4. praktikum: Käsureaprogrammid ja kodeeringud, morfoloogiline süntees ja nimeüksuste tuvastamine
  5. praktikum: Csv-failid. Pandas. Andmete puhastamine. Lihtsad nimisõnafraasid
