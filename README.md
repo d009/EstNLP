@@ -6,8 +6,8 @@
  1. praktikum: Pythoni virtuaalkeskkonnad, Jupyter Notebook ja Pythoni baasteadmiste kordamine
  2. praktikum: Teksti segmenteerimine, morfoloogiline analüüs, õigekirjakontroll. Sõnapilved
  3. praktikum: Morfoloogilise analüüsi erijuhud: korpusepõhine ühestamine, analüüs kasutajasõnastiku abil, Giellatekno märgendid
- 4. praktikum: Käsureaprogrammid ja kodeeringud, morfoloogiline süntees ja nimeüksuste tuvastamine
- 5. praktikum: Csv-failid. Pandas. Andmete puhastamine. Lihtsad nimisõnafraasid
+ 4. praktikum: Csv-failid. Pandas. Andmete puhastamine. Lihtsad nimisõnafraasid
+ 5. praktikum: Käsureaprogrammid ja kodeeringud, morfoloogiline süntees ja nimeüksuste tuvastamine
  6. praktikum: Json andmeformaat ja märgendatud tekstide salvestamine failidesse / laadimine failidest. Ajaväljendite tuvastamine ja visualiseerimine
  7. praktikum: XML andmeformaat ja serialiseerimine. Osalausestamine ja verbiahelate tuvastamine. Märgenduskihtide visualiseerimine
  8. praktikum: Wordnet. Heatmap'i loomine. Word2vec. Pdf-i lugemine Pythonis
