@@ -2,6 +2,7 @@
 
 #### TÜ eesti ja üldkeeleteaduse instituudi aine Eesti keele töötlus Pythonis (HVEE.04.004) jaoks loodud õppematerjalid ja ülesanded. Materjalid on kokku pannud Siim Orasmaa, Sandra Eiche ja Dage Särg. Küsimusi ja kommentaare võib julgesti saata aadressile siim.orasmaa@ut.ee.
 
+<h3 style="color:blue">Praktikumide teemad</h3>
 
  1. praktikum: Pythoni virtuaalkeskkonnad, Jupyter Notebook ja Pythoni baasteadmiste kordamine
  2. praktikum: Teksti segmenteerimine, morfoloogiline analüüs, õigekirjakontroll. Sõnapilved
@@ -15,3 +16,12 @@
  10. praktikum: Veebiga suhtlemine ja tekstiandmete kogumine veebist. Twitteri veebiteenuste kasutamine
  11. praktikum: Info eraldamine. Suurte andmetega töötamine. Twitter'i säutsude analüüs. Vikipeedia artiklite töötlus. Fraasimärgendaja ja grammatikad
  12. praktikum: Dokumentide vektoresitus, klasterdamine ja visualiseerimine. Optilise tekstituvastuse katsetamine
+
+<h3 style="color:blue">Materjalidega tutvumine</h3>
+
+ * Kui soovid materjalidega tutvumisel koodinäiteid käivitada ja katsetada, siis on vaja kõigepealt luua enda arvutisse sobiv töökeskkond. Juhised selleks leiad [esimesest praktikumist](Praktikum1/praktikum_1_sissejuhatus.pdf).  
+ * Materjalide veebis lugemiseks on soovitatav kasutada [nbviewer.jupyter.org](https://nbviewer.jupyter.org/) veebilehte, kuna seal on garanteeritud Jupyter-i märkmike korrektne kuvamine. Alustada võib näiteks [siit](https://nbviewer.jupyter.org/github/d009/EstNLP/tree/master/).
+ * Praktikumide materjalid on olemas ka HTML failidena [siin kaustas](html). Neid saad veebis lugeda [htmlpreview.github.io](https://htmlpreview.github.io) abil ning vajadusel ka alla laadida ja avada oma arvuti veebilehitseja abil. 
+
+
+ 
