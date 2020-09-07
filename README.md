@@ -23,5 +23,10 @@
  * Materjalide veebis lugemiseks on soovitatav kasutada [nbviewer.jupyter.org](https://nbviewer.jupyter.org/) veebilehte, kuna seal on garanteeritud Jupyter-i märkmike korrektne kuvamine. Alustada võib näiteks [siit](https://nbviewer.jupyter.org/github/d009/EstNLP/tree/master/).
  * Praktikumide materjalid on olemas ka HTML failidena [siin kaustas](html). Neid saad veebis lugeda [htmlpreview.github.io](https://htmlpreview.github.io) abil ning vajadusel ka alla laadida ja avada oma arvuti veebilehitseja abil. 
 
+---
+
+Õppematerjalide uuendamist toetab HITSA
+
+<img src="hitsa_logo.jpg" alt="HITSA logo" style="width:200px;"/>
 
  
