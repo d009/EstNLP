@@ -1,6 +1,6 @@
 <h1 style="color:blue"> Eesti keele töötlus Pythonis </h1>  
 
-#### TÜ eesti ja üldkeeleteaduse instituudi aine Eesti keele töötlus Pythonis (HVEE.04.004) jaoks loodud õppematerjalid ja ülesanded. Materjalid on kokku pannud Siim Orasmaa, Sandra Eiche ja Dage Särg. Küsimusi ja kommentaare võib julgesti saata aadressile siim.orasmaa@ut.ee.
+#### TÜ eesti ja üldkeeleteaduse instituudi aine Eesti keele töötlus Pythonis (HVEE.04.004) jaoks loodud õppematerjalid ja ülesanded. Materjalid on kokku pannud Siim Orasmaa, Sandra Eiche ja Dage Särg. Küsimusi ja kommentaare võib julgesti saata aadressile: siim.orasmaa {at} ut.ee .
 
 <h3 style="color:blue">Praktikumide teemad</h3>
 
