@@ -13170,6 +13170,24 @@ Eelmises näites: võtmele <code>"vanemad"</code> vastavaks väärtuseks on jär
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#34;nimi&#34;: &#34;Elvis&#34;, &#34;lemmikloomad&#34;: [{&#34;nimi&#34;: &#34;Pontu&#34;, &#34;liik&#34;: &#34;koer&#34;}, {&#34;nimi&#34;: &#34;J\u00f5nksu&#34;, &#34;liik&#34;: &#34;k\u00fc\u00fclik&#34;}]}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13192,6 +13210,24 @@ Eelmises näites: võtmele <code>"vanemad"</code> vastavaks väärtuseks on jär
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;nimi&#39;: &#39;Elvis&#39;, &#39;lemmikloomad&#39;: [{&#39;nimi&#39;: &#39;Pontu&#39;, &#39;liik&#39;: &#39;koer&#39;}, {&#39;nimi&#39;: &#39;Jõnksu&#39;, &#39;liik&#39;: &#39;küülik&#39;}]}
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -13226,6 +13262,36 @@ Eelmises näites: võtmele <code>"vanemad"</code> vastavaks väärtuseks on jär
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{
+   &#34;nimi&#34;: &#34;Elvis&#34;,
+   &#34;lemmikloomad&#34;: [
+      {
+         &#34;nimi&#34;: &#34;Pontu&#34;,
+         &#34;liik&#34;: &#34;koer&#34;
+      },
+      {
+         &#34;nimi&#34;: &#34;J\u00f5nksu&#34;,
+         &#34;liik&#34;: &#34;k\u00fc\u00fclik&#34;
+      }
+   ]
+}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13238,7 +13304,7 @@ Eelmises näites: võtmele <code>"vanemad"</code> vastavaks väärtuseks on jär
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Ka Pythoni enda andmestruktuure võib väljastada ekraanile taanetega. Selle jaoks on standardteegis nn "kaunistrüki" ( ingl <em>pretty-printing</em> ) meetod <a href="https://docs.python.org/3.5/library/pprint.html"><code>pprint</code></a>:</p>
+<p>Ka Pythoni enda andmestruktuure võib väljastada ekraanile taanetega. Selle jaoks on standardteegis nn "kaunistrüki" ( ingl <em>pretty-printing</em> ) meetod <a href="https://docs.python.org/3.6/library/pprint.html"><code>pprint</code></a>:</p>
 
 </div>
 </div>
@@ -13257,11 +13323,31 @@ Eelmises näites: võtmele <code>"vanemad"</code> vastavaks väärtuseks on jär
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{&#39;lemmikloomad&#39;: [{&#39;liik&#39;: &#39;koer&#39;, &#39;nimi&#39;: &#39;Pontu&#39;},
+                  {&#39;liik&#39;: &#39;küülik&#39;, &#39;nimi&#39;: &#39;Jõnksu&#39;}],
+ &#39;nimi&#39;: &#39;Elvis&#39;}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="JSON-andmete-salvestamine-faili-/-lugemine-failist">JSON andmete salvestamine faili / lugemine failist<a class="anchor-link" href="#JSON-andmete-salvestamine-faili-/-lugemine-failist">&#182;</a></h4><p>Kui andmed on konverteeritud JSON sõneks, siis võib need salvestada faili samal viisil, nagu salvestatakse tavalisi tekstiandmeid. Analoogselt: JSON failist võib andmed algul lugeda sisse sõnena ning seejärel teisendada <code>json.loads</code> abil Pythoni andmeteks. Lisaks sellele on teegis <code>json</code> meetodid <a href="https://docs.python.org/3.5/library/json.html#json.dump"><code>dump</code></a> ja <a href="https://docs.python.org/3.5/library/json.html#json.load"><code>load</code></a>, mida saab kasutada vahetult faili kirjutamiseks / failist lugemiseks. Näide: faili kirjutamine:</p>
+<h4 id="JSON-andmete-salvestamine-faili-/-lugemine-failist">JSON andmete salvestamine faili / lugemine failist<a class="anchor-link" href="#JSON-andmete-salvestamine-faili-/-lugemine-failist">&#182;</a></h4><p>Kui andmed on konverteeritud JSON sõneks, siis võib need salvestada faili samal viisil, nagu salvestatakse tavalisi tekstiandmeid. Analoogselt: JSON failist võib andmed algul lugeda sisse sõnena ning seejärel teisendada <code>json.loads</code> abil Pythoni andmeteks. Lisaks sellele on teegis <code>json</code> meetodid <a href="https://docs.python.org/3.6/library/json.html#json.dump"><code>dump</code></a> ja <a href="https://docs.python.org/3.6/library/json.html#json.load"><code>load</code></a>, mida saab kasutada vahetult faili kirjutamiseks / failist lugemiseks. Näide: faili kirjutamine:</p>
 
 </div>
 </div>
@@ -13502,7 +13588,7 @@ JSON ja sõnastikud käivad käsikäes ning seega toimub funktsioonide <code>tex
 <li>failidest loetakse sisse juba nimeüksuste märgendust sisaldavad tekstid (tekitage need ise) ning loetakse nimeüksused kokku;</li>
 </ol>
 <p>Mõõda, kui palju kulub programmil aega esimesel ja teisel viisil ülesande lahendamiseks.</p>
-<p>Programmi tööaja mõõtmiseks Pythonis on mitmeid viise. Uuri moodulite <code>timeit</code> (<a href="https://docs.python.org/3.5/library/timeit.html">viide 1</a>, <a href="http://pythoncentral.io/measure-time-in-python-time-time-vs-time-clock/">viide 2</a>) ja <code>datetime/timedelta</code> (<a href="https://stackoverflow.com/a/766382">viide 1</a>, <a href="http://en.proft.me/2014/12/7/measure-time-python">viide 2</a>) võimalusi ning leia antud ülesande jaoks sobivaim tööaja mõõtmise viis.</p>
+<p>Programmi tööaja mõõtmiseks Pythonis on mitmeid viise. Uuri moodulite <code>timeit</code> (<a href="https://docs.python.org/3.6/library/timeit.html">viide 1</a>, <a href="http://pythoncentral.io/measure-time-in-python-time-time-vs-time-clock/">viide 2</a>) ja <code>datetime/timedelta</code> (<a href="https://stackoverflow.com/a/766382">viide 1</a>, <a href="http://en.proft.me/2014/12/7/measure-time-python">viide 2</a>) võimalusi ning leia antud ülesande jaoks sobivaim tööaja mõõtmise viis.</p>
 
 </div>
 </div>
@@ -13630,7 +13716,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
       <td>['eile']</td>
       <td>t1</td>
       <td>DATE</td>
-      <td>2020-09-02</td>
+      <td>2021-01-03</td>
       <td>True</td>
       <td>t0</td>
       <td>None</td>
@@ -13724,7 +13810,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
       <td>0</td>
       <td>['eile']</td>
       <td>DATE</td>
-      <td>2020-09-02</td>
+      <td>2021-01-03</td>
     </tr>
     <tr>
       <td>1</td>
@@ -13781,7 +13867,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[[&#39;eile&#39;], &#39;DATE&#39;, &#39;2020-09-02&#39;]</pre>
+<pre>[[&#39;eile&#39;], &#39;DATE&#39;, &#39;2021-01-03&#39;]</pre>
 </div>
 
 </div>
@@ -13814,7 +13900,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;2020-09-02&#39;</pre>
+<pre>&#39;2021-01-03&#39;</pre>
 </div>
 
 </div>
@@ -13847,7 +13933,7 @@ Java HotSpot(TM) 64-Bit Server VM (build 25.171-b11, mixed mode)
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&#39;2020-09-02&#39;</pre>
+<pre>&#39;2021-01-03&#39;</pre>
 </div>
 
 </div>
