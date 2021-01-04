@@ -25,7 +25,7 @@
 
 ---
 
-Õppematerjalide uuendamist toetab HITSA
+Õppematerjalide uuendamist on toetanud HITSA
 
 <img src="hitsa_logo.jpg" alt="HITSA logo" style="width:200px;"/>
 
