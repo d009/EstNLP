@@ -13127,19 +13127,17 @@ Minimaalne oskustepagas võiks olla: kuidas uurida käsureal jooksva kausta sisu
 
 </code></pre>
 <p>Kõige lihtsam viis käsureaargumentide kättesaamiseks skripti sees on standardteegi muutuja <code>sys.argv</code> kaudu. See muutuja sisaldab järjendit, mille esimene element on skripti enda nimi ning järgmised elemendid skriptile käsurealt etteantud argumendid:</p>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sys</span> <span class="kn">import</span> <span class="n">argv</span>
 
-<pre><code>from sys import argv
-
-# Kontrollime, kas käsurealt anti ette vähemalt 2 argumenti
-if len(argv) &gt;= 3:
-    print('skripti nimi:', argv[0])
-    print('esimene sisendfail:', argv[1])
-    print('teine sisendfail:', argv[2])
-else:
-    # Kui argumente ei antud, kuvame skripti "käivitamise juhendi"
-    print('(!) Palun mulle sisendiks 2 failinime!')
-
-</code></pre>
+<span class="c1"># Kontrollime, kas käsurealt anti ette vähemalt 2 argumenti</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">argv</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;skripti nimi:&#39;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;esimene sisendfail:&#39;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;teine sisendfail:&#39;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Kui argumente ei antud, kuvame skripti &quot;käivitamise juhendi&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(!) Palun mulle sisendiks 2 failinime!&#39;</span><span class="p">)</span>
+</pre></div>
 <p>Kui soovite eeltoodud koodijuppi katsetada, peaksite väljaspool Jupyter Notebook'i looma py-laiendiga faili, salvestama sinna koodi ning proovima seda käsurealt käivitada.</p>
 
 </div>
@@ -13161,22 +13159,19 @@ Kui skript on <code>argparse</code>-i abil dokumenteerinud, siis pannakse selle 
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Näide: skript, mis nõuab kasutajalt argumentidena kaks nime ning väljastab need läbivate suurtähtedega:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
 
-<pre><code>import argparse
+<span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Prints the forename and surname, if provided, in uppercase.&#39;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;forename&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                     <span class="n">help</span><span class="o">=</span><span class="s2">&quot;someone&#39;s forename&quot;</span><span class="p">)</span>
+<span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--surname&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;last_name&#39;</span><span class="p">,</span>
+                     <span class="n">help</span><span class="o">=</span><span class="s2">&quot;someone&#39;s last name&quot;</span><span class="p">)</span>
 
-parser = argparse.ArgumentParser(description='Prints the forename and surname, if provided, in uppercase.')
-parser.add_argument('forename', type=str,
-                     help="someone's forename")
-parser.add_argument('--surname', dest='last_name',
-                     help="someone's last name")
+<span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
 
-args = parser.parse_args()
-
-print(args.forename.upper())
-print(args.last_name.upper())
-
-
-</code></pre>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">forename</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">last_name</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+</pre></div>
 <p>Teegis <code>argparse</code> eristatakse kahte liiki sisendargumente: 1) <em>positsionaalsed argumendid</em> on kohustuslikud ning peavad olema kindlas järjekorras -- nende puudumisel annab skript  veateate; 2) <em>valikulised argumendid</em> saab aga skriptile anda ette suvalises järjekorras ning need võib ka üldse ära jätta. 
 Looge eelnevat koodijuppi sisaldav Pythoni skript ning katsetage seda käsureal. 
 Uurige: milline defineeritud argumentidest on kohustuslik, milline valikuline? ja kuidas tuleks skripti muuta, et käivitamisel poleks ohtu sattuda veateatele?</p>
