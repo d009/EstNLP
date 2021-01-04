@@ -13078,7 +13078,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h1 style="color:blue">Praktikum 9</h1></p>
-<h3 style="color:blue">Sissejuhatus objekt-orienteeritud programmeerimisse. Märgendajate tegemine. <br> Teksti osalausestamine</h3><p>Käesolevas praktikumis teeme lähemalt tutvust Pythoni objekt-orienteeritud poolega, vaatame, kuidas teha ise uusi teksti märgendajaid ning uurime osalausete tuvastaja kasutusvõimalusi.</p>
+<h3 style="color:blue">Sissejuhatus objekt-orienteeritud programmeerimisse. Märgendajate tegemine. <br> Teksti osalausestamine</h3><p>Käesolevas praktikumis teeme lähemalt tutvust Pythoni objekt-orienteeritud poolega ja vaatame, kuidas teha ise uusi teksti märgendajaid. Lingvistilise analüüsi poole pealt uurime osalausete tuvastajat ja selle kasutusvõimalusi.</p>
 
 </div>
 </div>
@@ -13087,7 +13087,7 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Sissejuhatus-objekt-orienteeritud-programmeerimisse">Sissejuhatus objekt-orienteeritud programmeerimisse<a class="anchor-link" href="#Sissejuhatus-objekt-orienteeritud-programmeerimisse">&#182;</a></h2><p>Objekt-orienteeritud programmeerimine on programmeerimise viis, mille puhul koosneb programm suures osas objektide kirjeldustest  (<i>objekt</i> == kogum andmeid + nendega seotud funktsioonid) ning modelleerib objektidevahelist suhtlust.
-Kuna Python ei ole puhas objekt-orienteeritud keel, siis saab siin asju teha ka ilma objekt-orienteeritud lähenemist kasutamata, aga objekt-orienteeritud programmeerimisvõtete rakendamine tõstab sageli koodi kvaliteeti: saab luua selgemini struktureeritud ja paremini taaskasutatavat ning hallatavat koodi.</p>
+Kuna Python ei ole puhas objekt-orienteeritud keel, siis saab siin asju teha ka ilma objekt-orienteeritud lähenemist kasutamata. Aga objekt-orienteeritud programmeerimisvõtted tõstavad sageli koodi kvaliteeti: saab luua selgemini struktureeritud ja paremini taaskasutatavat ning hallatavat koodi.</p>
 
 </div>
 </div>
@@ -13498,28 +13498,28 @@ Siiski ei toimunud konstruktori funktsionaalsuse täielikku asendamist (mis on k
 <h3 id="&#220;lesanne-1.-Foorumikasutajate-anal&#252;&#252;s-(2-p)">&#220;lesanne 1. Foorumikasutajate anal&#252;&#252;s (2 p)<a class="anchor-link" href="#&#220;lesanne-1.-Foorumikasutajate-anal&#252;&#252;s-(2-p)">&#182;</a></h3><p>Kataloogis <code>'foorumid_xml'</code> on TÜ koondkorpuse <a href="http://www.cl.ut.ee/korpused/segakorpus/uusmeedia">uue meedia alamkorpusest</a> pärinevad Planet foorumite postituste salvestused. 
 Igas XML failis on ühe alamfoorumi teemad; teemad on jagatud postitusteks ning postitused omakorda lauseteks.</p>
 <p>Ülesandeks on lugeda see korpus sisse ning re-organiseerida andmed postitajate ja postituste kaupa. 
-Loo klass <code>Postitus</code>, millel on isendimuutujad: postituse aeg, teema, algatus ( <em>boolean</em> - kas postitus oli teema esimene postitus või mitte? ) ning postituse sisuks olevad laused (sõnede listina). 
+Loo klass <code>Postitus</code>, millel on isendimuutujad: postituse aeg, teema ning postituse sisuks olevad laused (sõnede listina). 
 Seejärel loo klass <code>Kasutaja</code>, mille isendimuutujateks on postitaja nimi ja järjend <code>Postitus</code> objektidest. 
 Mõlemal klassil peab olema konstruktor ning klassil <code>Kasutaja</code> peavad konstruktorile lisaks olema meetodid:</p>
 <ul>
 <li>postituse lisamine -- meetod, mis lisab uue <code>Postitus</code> objekti konkreetse <code>Kasutaja</code> postituste järjendisse;</li>
-<li>lausete kättesaamine -- meetod, mis käib üle postituste järjendi ja kogub kokku kõik laused (st <code>&lt;s&gt;</code> ja <code>&lt;/s&gt;</code> märgendite vahelise tekstisisu). Tagastab lausete (sõnede) järjendi;</li>
+<li>lausete kättesaamine -- meetod, mis käib üle postituste järjendi ja kogub kokku kõik laused. Tagastab lausete (sõnede) järjendi;</li>
 <li>teemade kättesaamine -- meetod, mis käib üle postituste järjendi, kogub kokku kõik unikaalsed teemad (pealkirjad) ja tagastab hulgana;</li>
-<li><p>teema-algatuste kättesaamine -- meetod, mis käib üle postituste järjendi ja kogub kokku kõik teemat algatavad postitused, st postitused, mis on kohe teema alguses;</p>
-<p>NB! XML failides on teemade pealkirjad <code>&lt;div2 type="teema"&gt;</code> märgendite järel, <code>&lt;head&gt;</code>-märgendite vahel, nt</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;div2</span> <span class="na">type=</span><span class="s">&quot;teema&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;head&gt;</span> Tutipäev - 01. leht ( Planet Foorumid - Kultuur ja kunst - Kultuur - Haridus ) <span class="nt">&lt;/head&gt;</span>
+</ul>
+<p>XML failide kohta:</p>
+<ul>
+<li>teema pealkiri on <code>&lt;div2 type="teema"&gt;</code> märgendi järel ja <code>&lt;head&gt;</code>-märgendite vahel, nt<div class="highlight"><pre><span></span><span class="nt">&lt;div2</span> <span class="na">type=</span><span class="s">&quot;teema&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;head&gt;</span> Tutipäev - 01. leht ( Planet Foorumid - Kultuur ja kunst - Kultuur - Haridus ) <span class="nt">&lt;/head&gt;</span>
 </pre></div>
-<p>Pealkirja lõpust tuleks kustutada maha lehekülje number ja sulgudes olev alamfoorumi määratlus. Teemat algatav postitus peab aga olema esimese lehekülje (<code>01. leht</code>) alguses, mitte jätkulehtede (<code>02. leht</code>, <code>03. leht</code> jne) alguses.</p>
-</li>
+ Pealkirja lõpust tuleks kustutada maha lehekülje number ja sulgudes olev alamfoorumi määratlus. </li>
+<li>laused saab kätte <code>&lt;s&gt;</code> ja <code>&lt;/s&gt;</code> märgendite vahelt, seega EstNLTK lausestajat siin rakendada pole vaja;</li>
 </ul>
 <p>Programm loeb andmeid XML failidest ja loob töö käigus sõnastiku, mille võtmeteks on postitajate nimed ja väärtusteks <code>Kasutaja</code> objektid (sisaldavad kõigi antud foorumikasutaja postitusi). 
 Töö lõpus kuvab programm TOP 15 kõige rohkem postitusi teinud kasutajat, iga kasutaja kohta on välja toodud:</p>
 <ul>
-<li>kasutajanimi ja postituste arv;</li>
-<li>teemaalgatuste % -- mitu % kõigist teemadest, kus kasutaja osales vähemalt 1 postitusega, olid tema enda algatatud;</li>
+<li>kasutajanimi, postituste arv ja osaletud teemade arv;</li>
 <li>läbivalt väiketäheliste lausete % -- mitu % lausetest (üle kõigi lausete kasutaja postitustes) olid läbivalt väiketähelised;</li>
 </ul>
-<p>XML failide lugemine: kasuta selleks teegi <em>BeautifulSoup</em> vahendeid; enamuse tööst peaks tehtud saama <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html?highlight=find_all#navigating-using-tag-names">findall</a> abil XML-i filtreerides ning atribuudi <code>.text</code> abil märgendite vahelt tekstisisu välja võttes.</p>
+<p>XML failide lugemine: kasuta selleks teegi <em>BeautifulSoup</em> vahendeid; enamuse tööst peaks tehtud saama <a href="https://tedboy.github.io/bs4_doc/6_searching_the_tree.html"><code>find_all</code></a> abil XML-i filtreerides ning atribuudi <code>.text</code> abil märgendite vahelt tekstisisu välja võttes.</p>
 
 </div>
 </div>
@@ -13732,7 +13732,7 @@ Selleks võtame kasutusele regulaaravaldise, mis tuvastab tekstist jutumärkideg
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Rohkem infot märgenduskihtide loomise kohta (kuidas luua alamkihte, mitmeseid kihte ja ümbriskihte) leiad estnltk baastarkuste materjalist.</p>
+<p>Rohkem infot märgenduskihtide loomise kohta (kuidas luua eri tüüpi kihte: alamkihte, mitmeseid kihte ja ümbriskihte) leiad estnltk baastarkuste materjalist.</p>
 
 </div>
 </div>
@@ -13741,7 +13741,12 @@ Selleks võtame kasutusele regulaaravaldise, mis tuvastab tekstist jutumärkideg
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="M&#228;rgendaja-loomine">M&#228;rgendaja loomine<a class="anchor-link" href="#M&#228;rgendaja-loomine">&#182;</a></h4><p>Objekt-orienteeritud disainipõhimõtet edasi järgides peab ka <code>Layer</code> objekti tekitamine toimuma mingi klassi/objekti sees. EstNLTK-s ongi selleks puhuks märgendaja ehk <code>Tagger</code> klass.</p>
-<p>Märgendaja loomiseks tuleb tekitada <code>estnltk.taggers.Tagger</code>-i alamklass ning defineerida üle konfiguratsiooni sisaldav klassimuutuja <code>conf_param</code>, konstruktor <code>__init__</code>, mille ülesanne on algseadistada märgendaja (ja vajadusel laadida sisse tööks vajalikud ressursid), ning <code>_make_layer</code> meetod, mille ülesanne on tekitada ja tagastada märgeduskiht.</p>
+<p>Märgendaja loomiseks tuleb tekitada <code>estnltk.taggers.Tagger</code>-i alamklass ning defineerida üle:</p>
+<ul>
+<li>klassimuutuja <code>conf_param</code>, mis sisaldab märgendaja konfiguratsiooni;</li>
+<li>konstruktor <code>__init__</code>, mille ülesanne on algseadistada märgendaja (ja vajadusel laadida sisse tööks vajalikud ressursid);</li>
+<li><code>_make_layer</code> meetod, mille ülesanne on tekitada ja tagastada märgeduskiht;</li>
+</ul>
 
 </div>
 </div>
@@ -13750,14 +13755,16 @@ Selleks võtame kasutusele regulaaravaldise, mis tuvastab tekstist jutumärkideg
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <div class="alert alert-block alert-warning">
-<h4><i>Miks on vaja defineerida üle <code>Tagger</code>-i <code>_make_layer</code> meetod, mitte aga <code>tag</code> meetod?  (Ehk: kuidas see kõik toimib?)</i></h4>
+<h4><i>Miks on vaja defineerida üle <code>Tagger</code>-i <code>_make_layer</code> meetod, mitte aga <code>tag</code> meetod?</i></h4>
 <br>
-Tegelikult on <code>tag</code> meetodis toimuv märgenduskihi loomise viimane etapp: seal kutsutakse kihi loomiseks välja <code>Tagger</code>-i meetod <code>make_layer</code> ning kui kihi loomine õnnestub, riputatakse see <code>Text</code> objekti külge. 
+Tegelikult on <code>tag</code> meetodis toimuv märgenduskihi loomise esimene etapp. Etappe on kokku kolm ja nendeks on (väljakutsumise järjekorras): <code>tag</code> => <code>make_layer</code> =><code>_make_layer</code>. 
+
+<code>tag</code> meetodis kutsutakse kihi loomiseks välja <code>Tagger</code>-i meetod <code>make_layer</code> ning kui kihi loomine õnnestub, riputatakse see <code>Text</code> objekti külge. 
 Ka meetod <code>make_layer</code> (NB! ilma alakriipsuta alguses) ei tegele ise kihi tekitamisega, vaid kontrollib enne kihi tekitamist, kas kõik kihi loomiseks vajalikud sisendkihid on olemas, seejärel kutsub kihi tekitamiseks välja <code>Tagger</code>-i meetodi <code>_make_layer</code> ( mis ongi meie implementeerida! ) ning kõige lõpus kontrollib, kas loodud kiht on valiidse struktuuriga (nt sisaldab deklareeritud atribuute).
 <br><br>
-<code>tag</code>, <code>make_layer</code> ja <code>_make_layer</code> -- milleks selline mitmetasandiline eristamine?
+Aga miks on ikkagi kihi loomine jagatud laiali kolme meetodi vahel?
 <br><br>
-<code>tag</code> ja <code>make_layer</code> eristamine on vajalik selleks, et oleks võimalik luua nii lõppkasutaja jaoks mugavaid <code>Text</code>-iga seotud kihte kui ka nn eraldatud kihte (ingl <i>detached layers</i>), mis pole <code>Text</code>-i alla riputatud. Eraldatud kihte kasutab Postgres andmebaasiliides (kihte saab <code>Text</code>-ist eraldi andmebaasi salvestada) ning neid saab kasutada ka rakendustes, kus kihi loomine on ainult ajutine vahe-etapp -- kui kihilt on informatsioon kätte saadud, pole põhjust seda <code>Text</code>-i külge kinnitada, vaid võib selle ära visata.
+<code>tag</code> ja <code>make_layer</code> eristamine on vajalik selleks, et oleks võimalik luua nii lõppkasutaja jaoks mugavaid <code>Text</code>-iga seotud kihte kui ka nn eraldatud kihte (ingl <i>detached layers</i>), mis pole <code>Text</code>-i alla riputatud. Eraldatud kihte kasutab Postgres andmebaasiliides (kihte saab <code>Text</code>-ist eraldi andmebaasi salvestada) ning neid saab kasutada ka rakendustes, kus kihi loomine on ainult ajutine vahe-etapp -- kui loodud kihilt on informatsioon kätte saadud, pole põhjust seda <code>Text</code>-i külge kinnitada, vaid võib selle ära visata.
 <br>
 <code>make_layer</code> ja <code>_make_layer</code> eristamine võimaldab aga eraldada rutiinsed eel- ja järeltegevused (vajalike sisendkihtide kontroll ja märgenduste valideerimine) otsesest kihi loomisest.
 </div>
@@ -13814,9 +13821,9 @@ Ning lõpuks kompileerime tsitaate eraldava regulaaravaldise ja riputame isendim
 Lisaks leiame iga tuvastatud tsitaadi pikkuse (sümbolites), paneme sõnastikku võtme <code>'length'</code> alla ning anname märgenduse lisamisel kaasa -- selle sõnastiku põhjal tekitatakse märgendusele atribuudid.</p>
 <p>Ning töö lõpus tagastame loodud kihi.</p>
 <p>Meetodis <code>_make_layer</code>  meil olemasolevate kihtide sõnastikku <code>layers</code> vaja ei läinudki, kuna <code>self.input_layers = []</code> ehk märgendaja ei nõudnud sisendkihte. 
-Aga kui sisendkihid oleks nõutud, tuleks need sõnastikus välja noppida (nt <code>input_layer_1 = layers[ self.input_layers[0] ]</code>, <code>input_layer_2 = layers[ self.input_layers[1] ]</code> jne) ning seejärel saaks neid kasutada uue kihi tekitamisel.
+Aga kui sisendkihid oleks nõutud, tuleks need sõnastikust välja noppida (nt <code>input_layer_1 = layers[ self.input_layers[0] ]</code>, <code>input_layer_2 = layers[ self.input_layers[1] ]</code> jne) ning seejärel saaks neid kasutada uue kihi tekitamisel.
 Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <code>layers</code>, mitte <code>text</code>-i alt (nagu seda tehakse tavaliselt). Miks? Märgendajat peab olema võimalik kasutada ka eraldatud kihtide loomiseks ehk siis selliste kihtide loomiseks, millest ükski ei ole veel <code>text</code>-i alla riputatud.</p>
-<p>Paneme nüüd vaadeldud <code>QuotationsTagger</code>-i koodi kokku:</p>
+<p>Paneme nüüd samm-haaval vaadeldud <code>QuotationsTagger</code>-i koodi kokku üheks klassiks:</p>
 
 </div>
 </div>
@@ -14316,16 +14323,34 @@ Märgendus jäetakse aga sõnale lisamata, kui lemmaga pole domineerivat tekstik
 Pärast märgendamist leitakse iga tekstiklassi suhteline sagedus: jagatakse tekstiklassi märgendatud sõnade arv kõigi märgendatud sõnade arvuga.
 Näide: kui tekstiklassimärgendi 'aja' said 36 sõna ning kokku märgendati tekstis 387 sõna, siis klassi 'aja' suhteline sagedus on 36/387 ehk ~0.09.
 Kõigi kolme tekstiklassi suhtelised sagedused salvestatakse märgenduskihi atribuudi <code>.meta</code> alla.</p>
-<p>Maksimumpunktid märgendaja loomise eest saad, kui on järgid märgendaja loomise põhimõtteid: 1) sisend- ja väljundkihid on korrektselt defineeritud ning kihinimed (konstruktori kaudu) muudetavad; 2) konstruktori kaudu saab määrata sisendfaile ja lävendit, 3) märgendaja tööks vajalike ressursside ettevalmistus toimub konstruktoris (võib olla ka eraldi meetodis) ning <code>_make_layer</code> rakendab juba ettevalmistatud ressursse.</p>
+<p>Maksimumpunktid märgendaja loomise eest saab kui: 1) sisend- ja väljundkihid on korrektselt defineeritud ning kihinimed (konstruktori kaudu) muudetavad; 2) konstruktori kaudu saab määrata sisendfaile ja lävendit, 3) märgendaja tööks vajalike andmete ettevalmistus toimub konstruktoris (andmete lugemine failidest võib olla nt isendimeetodis, mille konstruktor välja kutsub) ning <code>_make_layer</code> kasutab teksti märgendamisel (isendimuutujates olevaid) andmeid sõnade kohta.</p>
 <h4 id="M&#228;rgendaja-testimine-(1-p)">M&#228;rgendaja testimine (1 p)<a class="anchor-link" href="#M&#228;rgendaja-testimine-(1-p)">&#182;</a></h4><p>Testi tekstiklassi märgendajat kahel viisil:</p>
 <ul>
 <li>Võta välja TOP 3 kõige sagedasemat foorumipostitajat (ülesande 1 tulemustest), liida iga postitaja kõik laused kokku üheks tekstiks, märgenda see tekst <code>WordsTextclassTagger</code> abil ning väljasta tekstiklasside suhtelised sagedused. Millise tekstiklassi sõnavara foorumipostitajad kõige rohkem kasutavad?</li>
 </ul>
 <ul>
-<li>Kataloogis <code>web_2017_json</code> on mõned Eesti veebikorpuse dokumendid, EstNLTK JSON kujul. Laen need <code>Text</code> objektidena sisse (metaandmetest leiad ka lisainfot, nt <code>'title'</code> ja <code>'url'</code>), rakenda märgendajat ning väljasta iga dokumendi kohta tekstiklasside suhtelised sagedused. Kuidas õnnestub dokumentidele tekstiklasside määramine sellel korpusel?</li>
+<li>Kataloogis <code>web_2017_json</code> on mõned Eesti veebikorpuse dokumendid, EstNLTK JSON kujul. Lae need <code>Text</code> objektidena sisse (metaandmetest leiad ka lisainfot, nt <code>'title'</code> ja <code>'url'</code>), rakenda märgendajat ning väljasta iga dokumendi kohta tekstiklasside suhtelised sagedused. Kuidas õnnestub dokumentidele tekstiklasside määramine sellel korpusel?</li>
 </ul>
 <p>Kuidas mõjutab tulemusi erineva lävendi seadmine?</p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="alert alert-block alert-warning">
+<h4><i>Sõnade tekstiklassid ja tekstide automaatne klassifitseerimine?</i></h4>
+<p>Eelmist ülesannet lahendades võis tekkida küsimus, kuidas on seotud sõnade tekstiklassid ja tekstide automaatne klassifitseerimine -- kas me saame ka praktikas sellisel meetodil tekste klassifitseerida? Tegelikult on eelmises ülesandes uuritud meetod üsna eksperimentaalne. Praktikas rakendatavad teksti klassifitseerimise meetodid tuginevad dokumentide vektoresitusele ning nendega teeme lähemalt tutvust viimases praktikums.</p>
+</div>
 </div>
 </div>
 </div>
@@ -14431,7 +14456,7 @@ Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitver
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li><em>Tehniline märkus:</em> nagu ajaväljendite tuvastaja ja süntaksianalüsaator, nii kasutab ka EstNLTK osalausestaja <code>java</code>-t. Seetõttu läheb esmakordsel <code>tag_layer(['clauses'])</code> väljakutsel tavaliselt natukene rohkem aega, kuna toimub <code>java</code> komponendi initsialiseerimine;</li>
+<li><em>Tehniline märkus:</em> nagu ajaväljendite tuvastaja ja süntaksianalüsaator (Maltparser), nii kasutab ka EstNLTK osalausestaja <code>java</code>-t. Seetõttu läheb esmakordsel <code>tag_layer(['clauses'])</code> väljakutsel tavaliselt natukene rohkem aega, kuna toimub <code>java</code> komponendi initsialiseerimine;</li>
 </ul>
 
 </div>
@@ -14456,7 +14481,7 @@ Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitver
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Milleks on osalausete tuvastajat tarvis? Osalausestatud tekstide peal on võimalik uurida mitmeid keelenähtuseid, mida automaatne  süntaksianalüüs veel lahendada ei oska või mille lahendus vajab täiustamist.</p>
 <p>Üheks selliseks keelenähtuseks on <em>kollokatsioonid</em> ehk sõnade koosesinemised, millega sageli kaasneb ka eraldiseisev/metafoorne tähendus ( nt "hea seisma", "hambasse puhuma", "õppust võtma" ). Kollokatsioonide automaatne tuvastamine nõuab kõigepealt, et piiritleme konteksti, mille seest kollokatsioonikandidaate otsime. Kui kontekstiks valida terve lause, siis liitlausete puhul jääb sõelale üksjagu "prahti" ehk siis selliseid sõnapaare, mis ületavad osalausepiire ning ei saa olla kollokatsioonid. Seega saab osalausestamise tulemust aluseks võttes leida täpsemad kollokatsioonikandidaadid.</p>
-<p>Teiseks keelenähtuseks on sõnadevahelised <em>rektsiooniseosed</em> ehk süntaksiseosed, kus üks sõna määrab teise olemasolu ja vormi lauses. Näiteks, verb 'hoolima' tingib sageli seestütlevas käändes sõna esinemise lauses ( "Kas sa hoolid <strong>temast</strong> ?" ) ning verb 'tutvustama' osastavas ja alaleütlevas käändes sõnad ( "Konsul tutvustab <strong>kuurorti</strong> ka oma <strong>kaasmaalastele</strong>." ). Ka rektsiooniseoste uurimisel aitab osalausestamine täpsemalt piiritleda konteksti, mille sees seosed võivad sõnade vahel esineda (rektsiooniseosed tüüpiliselt ei ületa osalausepiire), ning seega parandada analüüsi kvaliteeti. Verbiahelate tuvastamine, mida tutvustame lisamaterjalis, toetub samuti osalausepiiride märgendusele ja otsib verbiahelaid osalausete seest.</p>
+<p>Teiseks keelenähtuseks on sõnadevahelised <em>rektsiooniseosed</em> ehk süntaksiseosed, kus üks sõna määrab teise olemasolu ja vormi lauses. Näiteks, verb 'hoolima' tingib sageli seestütlevas käändes sõna esinemise lauses ( "Kas sa hoolid <strong>temast</strong> ?" ) ning verb 'tutvustama' osastavas ja alaleütlevas käändes sõnad ( "Konsul tutvustab <strong>kuurorti</strong> ka oma <strong>kaasmaalastele</strong>." ). Ka rektsiooniseoste uurimisel aitab osalausestamine täpsemalt piiritleda konteksti, mille sees seosed võivad sõnade vahel esineda (rektsiooniseosed tüüpiliselt ei ületa osalausepiire), ning seega parandada analüüsi kvaliteeti.</p>
 
 </div>
 </div>
@@ -14485,7 +14510,8 @@ Kuidas probleemist üle saab?
 for clause_spanlist in text.clauses:
     print(clause_spanlist.text)
     for word_span in clause_spanlist:
-        # Kuna 'morph_analysis' on 'words' alamkiht, saame selle kaudu kätte morf analüüsid, sh sõnaliigid
+        # Kuna 'morph_analysis' on 'words' alamkiht, saame selle 
+        # kaudu kätte morf analüüsid, sh sõnaliigid
         print('   ', word_span.text,'\t', word_span.morph_analysis.partofspeech)
 </pre>
 või
@@ -14523,10 +14549,12 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 
 <span class="c1"># Tekitame komavigade-suhtes-vähetundliku osalausestaja</span>
 <span class="c1"># Muudame väljundkihi nime nii, et see oleks eristatav tavalisest osalausete kihist</span>
-<span class="n">new_segmenter</span> <span class="o">=</span> <span class="n">ClauseSegmenter</span><span class="p">(</span> <span class="n">output_layer</span><span class="o">=</span><span class="s1">&#39;clauses_ignore_missing_commas&#39;</span><span class="p">,</span> <span class="n">ignore_missing_commas</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<span class="n">new_segmenter</span> <span class="o">=</span> <span class="n">ClauseSegmenter</span><span class="p">(</span> <span class="n">output_layer</span><span class="o">=</span><span class="s1">&#39;clauses_ignore_missing_commas&#39;</span><span class="p">,</span> 
+                                 <span class="n">ignore_missing_commas</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
 
 <span class="c1"># Tekitame analüüsitava näidisteksti</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Keegi teine ka siin ju kirjutas et ütles et saab ise asjadele järgi minna aga vastust seepeale ei tulnudki.&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Keegi teine ka siin ju kirjutas et ütles et saab ise asjadele järgi minna &#39;</span><span class="o">+</span>\
+            <span class="s1">&#39;aga vastust seepeale ei tulnudki.&#39;</span><span class="p">)</span>
 <span class="c1"># Lisame nõutud sisendkihid</span>
 <span class="n">text</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">([</span><span class="s1">&#39;words&#39;</span><span class="p">,</span><span class="s1">&#39;sentences&#39;</span><span class="p">,</span><span class="s1">&#39;morph_analysis&#39;</span><span class="p">])</span>
 
