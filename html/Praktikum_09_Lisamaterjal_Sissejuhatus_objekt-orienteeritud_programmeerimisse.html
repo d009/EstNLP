@@ -3,7 +3,7 @@
 <head><meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Praktikum_9</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Lisamaterjal_Sissejuhatus_objekt-orienteeritud_programmeerimisse</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
 
@@ -14580,8 +14580,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><h1 style="color:blue">Praktikum 9</h1></p>
-<h3 style="color:blue">Tekstitöötluse koodi pakendamine märgendajate abil. <br> Osalausestamine</h3><p>Käesolevas praktikumis vaatame, kuidas oma tekstitöötluse koodi "pakendada" EstNLTK märgendaja kujule. Lingvistilise analüüsi poole pealt uurime osalausete tuvastajat ja selle kasutusvõimalusi.</p>
+<h1 style="color:blue">Lisamaterjal: Sissejuhatus objekt-orienteeritud programmeerimisse</h1><p>Käesolevas lisamaterjalis teeme tutvust Pythoni objekt-orienteeritud poolega.</p>
 
 </div>
 </div>
@@ -14593,21 +14592,8 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="M%C3%A4rgendajate-loomine">M&#228;rgendajate loomine<a class="anchor-link" href="#M%C3%A4rgendajate-loomine">&#182;</a></h2><p>Selleks, et tekstianalüüsi kood oleks paremini hallatav, taaskasutatav ja teistega jagatav, on mõistlik järgida koodi ülesehitamisel kindlaid printsiipe. 
-Näiteks tekstianalüüsi sisend ja väljund peaksid olema selgelt defineeritud -- eriti sellisel juhul, kui analüüsil on sõltuvused ning enne analüüsi teostamist tuleb tekitada mitmed teised analüüsid. 
-Samuti peaks olema võimalik analüüse ja vaheetappe salvestada ning taastada failist (või andmebaasist). 
-Seetõttu pakubki EstNLTK välja programmeerimisliidese tekstitöötluse koodi "pakendamiseks" -- teksti analüüsi teostab märgendaja (<code>Tagger</code>) ning analüüsi tulemuseks on märgenduskiht (<code>Layer</code>). 
-Enamus tekstianalüüsi komponente, millega me seni oleme kokku puutunud (nt teksti lausestaja ja sõnestaja, morfoloogiline analüsaator, nimeüksuste tuvastaja jne), ongi loodud kui <code>Tagger</code>-id, mis opereerivad <code>Layer</code> objektidega.</p>
-<p>Tekstianalüüsi pakendamine <code>Tagger</code> ja <code>Layer</code> abil tagab, et:</p>
-<ul>
-<li>märgenduskihtide loomisel teostatakse eel- ja järelkontrolli ning tänu sellele järgivad andmed ühtset struktuuri;</li>
-<li>märgendajate konfiguratsiooni ja märgenduskihte saab visualiseerida Jupyter Notebook'is;</li>
-<li>märgenduskihte saab salvestada JSON kujul failidesse / lugeda failidest;</li>
-<li>märgenduskihte saab salvestada vabavaralisse <a href="https://github.com/estnltk/estnltk/tree/main/tutorials/storage">Postgresql andmebaasi</a> / lugeda andmebaasist. See muutub eriti kasulikuks suurte tekstimassivide töötlemisel;</li>
-</ul>
-<p>Selleks, et luua ise märgendajaid ja märgenduskihte, tuleb natukene kursis olla ka Pythoni objekt-orienteeritud poolega -- hea on omada algteadmisi klasside ja objektide loomise kohta, samuti võiks tunda põhimõisteid. 
-Kui vajad selles osas teadmiste uuendamist, vaata enne edasilugemist üle "Lisamaterjal: Sissejuhatus objekt-orienteeritud programmeerimisse".
-Samuti on soovitav kõrvale lahti võtta Moodle's olev "EstNLTK baastarkuste materjal", kus on detailsemalt käsitletud kihtide ja märgendajate loomist.</p>
+<p>Objekt-orienteeritud programmeerimine on programmeerimise viis, mille puhul koosneb programm  objektide kirjeldustest  (<i>objekt</i> == kogum andmeid + nendega seotud funktsioonid) ning modelleerib objektidevahelist suhtlust.
+Kuna Python ei ole puhas objekt-orienteeritud keel, siis saab siin programmeerida ka ilma objekt-orienteeritud lähenemist kasutamata. Aga objekt-orienteeritud programmeerimisvõtted tõstavad sageli koodi kvaliteeti: saab luua selgemini struktureeritud ja paremini taaskasutatavat ning hallatavat koodi.</p>
 
 </div>
 </div>
@@ -14619,20 +14605,8 @@ Samuti on soovitav kõrvale lahti võtta Moodle's olev "EstNLTK baastarkuste mat
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Vaatame nüüd märgendaja loomist lähemalt. Olgu eesmärgiks luua märgendaja, mis tuvastab tekstis tsitaadid ehk jutumärkide vahelised tekstilõigud. 
-Näidistekst märgendaja katsetamiseks:</p>
+<h3 id="Klassid-ja-objektid.-Isendimuutujad-ja-klassimuutujad">Klassid ja objektid. Isendimuutujad ja klassimuutujad<a class="anchor-link" href="#Klassid-ja-objektid.-Isendimuutujad-ja-klassimuutujad">&#182;</a></h3><p>Klass on sisuliselt objekti eskiis: seal on kirjeldatud, millised muutujad ehk <em>atribuudid</em> on objekti alt kättesaadavad ning millised funktsioonid ehk <em>meetodid</em> nende muutujate peal opereerivad.
+Näiteks, loome klassi <code>Raamat</code>, mis sisaldab andmeid raamatute kohta:</p>
 
 </div>
 </div>
@@ -14645,13 +14619,14 @@ Näidistekst märgendaja katsetamiseks:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text_str</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">Mees helistab arvutiabi telefonile ja kurdab: &quot;Mu arvutil läks pilt eest ära!&quot;</span>
-<span class="s1">&quot;Vaadake, kas kõik juhtmed on sees!&quot; ütleb spetsialist.</span>
-<span class="s1">&quot;Ei saa, pime on!&quot; ütleb hädaline.</span>
-<span class="s1">&quot;Pange siis tuli põlema.&quot;</span>
-<span class="s1">&quot;Ei saa, elektrit ei ole!&quot;</span>
-<span class="s1">&#39;&#39;&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Raamat</span><span class="p">:</span>
+    <span class="s1">&#39;Baasklass raamatute info salvestamiseks.&#39;</span>
+    
+    <span class="c1"># konstruktor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pealkiri</span><span class="p">,</span> <span class="n">autor</span><span class="p">):</span>
+        <span class="c1"># isendimuutuja(d)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pealkiri</span> <span class="o">=</span> <span class="n">pealkiri</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">autor</span>    <span class="o">=</span> <span class="n">autor</span>
 </pre></div>
 
      </div>
@@ -14666,10 +14641,42 @@ Näidistekst märgendaja katsetamiseks:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="M%C3%A4rgenduskihi-tekitamine">M&#228;rgenduskihi tekitamine<a class="anchor-link" href="#M%C3%A4rgenduskihi-tekitamine">&#182;</a></h4><p>Sisuliselt toimub märgendaja sees märgenduskihi ehk <code>Layer</code> objekti tekitamine. 
-Kõigepealt vaatame, kuidas käib kihi tekitamine eraldiseisvalt (st ilma märgendajata).
-Selleks võtame kasutusele regulaaravaldise, mis tuvastab tekstist jutumärkidega ümbritsetud lõike.
-Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
+<p>Loodud klassis on defineeritud täpselt üks meetod: <code>__init__</code>. Tegemist on erilise meetodiga, mis kutsutakse alati välja siis, kui klassi alusel luuakse uus objekt -- kuna see meetod on seotud "objekti konstrueerimisega", kutsutakse seda ka "konstruktoriks". Sisuliselt fikseerib konstruktor objekti algseisu / algväärtustab andmed.</p>
+<p>Meie konstruktor saab sisendiks kaks parameetrit: raamatu <code>pealkiri</code> ja <code>autor</code>. Kasutades <code>self</code> muutujat (mis viitab alati objektile endale), riputame konstruktoris objekti külge atribuudid <code>pealkiri</code> ja <code>autor</code>. 
+Sellega fikseerime, et igal raamatul peavad olema pealkiri ja autor ning need tuleb objekti loomisel määrata.</p>
+<p>Konstruktor on olemas igal klassil. Kui me jätame selle defineerimata, luuakse see automaatselt ning sellisel juhul ei saa me määrata atribuutide algväärtustamist (kuigi miski ei tekista meil lisamast atribuute ka hiljem, kui objekt on juba loodud).</p>
+<p>Loodud klassi põhjal saame nüüd objekte teha nii:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span> <span class="o">=</span> <span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;Naksitrallid&#39;</span><span class="p">,</span> <span class="s1">&#39;Eno Raud&#39;</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;Eestlase käsiraamat&#39;</span><span class="p">,</span> <span class="s1">&#39;Mihkel Raud&#39;</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Klassi põhjal loodud objekti nimetatakse ka <em>isendiks</em> ( ingl <em>instance</em> ). Näiteks, <code>r1</code> ja <code>r2</code> on mõlemad isendid klassist <code>Raamat</code>. 
+Atribuute <code>pealkiri</code> ja <code>autor</code> nimetatakse <em>isendimuutujateks</em> ( ingl <em>instance variable</em> ), kuna need on seotud konkreetse isendiga (ja erinevatel isenditel on erinevad väärtused). 
+Uurime isendimuutujate väärtuseid:</p>
 
 </div>
 </div>
@@ -14679,15 +14686,10 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="n">quotations_regexp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;(&quot;[^&quot;]+&quot;)&#39;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">match_obj</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span> <span class="n">quotations_regexp</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span> <span class="n">text_str</span> <span class="p">)</span> <span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span> <span class="n">match_obj</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>   <span class="c1"># lõigu algus</span>
-           <span class="n">match_obj</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>     <span class="c1"># lõigu lõpp</span>
-           <span class="n">match_obj</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>  <span class="c1"># lõigu sisu (sõne)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span><span class="o">.</span><span class="n">pealkiri</span>
 </pre></div>
 
      </div>
@@ -14705,49 +14707,19 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>47 79 &#34;Mu arvutil läks pilt eest ära!&#34;
-80 116 &#34;Vaadake, kas kõik juhtmed on sees!&#34;
-136 154 &#34;Ei saa, pime on!&#34;
-171 196 &#34;Pange siis tuli põlema.&#34;
-197 223 &#34;Ei saa, elektrit ei ole!&#34;
-</pre>
-</div>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Naksitrallid&#39;</pre>
 </div>
 
 </div>
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Edasi loome näidisteksi põhjal uue <code>Text</code> objekti ning seejärel ka uue märgenduskihi ehk <code>Layer</code> objekti:</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Layer</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
 </div>
 
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
@@ -14758,8 +14730,7 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text_obj</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span> <span class="n">text_str</span> <span class="p">)</span>
-<span class="n">text_obj</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span><span class="o">.</span><span class="n">autor</span>
 </pre></div>
 
      </div>
@@ -14781,19 +14752,9 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div align = "left"></br>Mees helistab arvutiabi telefonile ja kurdab: &quot;Mu arvutil läks pilt eest ära!&quot;</br>&quot;Vaadake, kas kõik juhtmed on sees!&quot; ütleb spetsialist.</br>&quot;Ei saa, pime on!&quot; ütleb hädaline.</br>&quot;Pange siis tuli põlema.&quot;</br>&quot;Ei saa, elektrit ei ole!&quot;</br></div></td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>&#39;Eno Raud&#39;</pre>
 </div>
 
 </div>
@@ -14802,7 +14763,7 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 
 </div>
 
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14810,38 +14771,7 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">Layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;quotations&#39;</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">(),</span> <span class="n">text_object</span><span class="o">=</span><span class="n">text_obj</span><span class="p">)</span>
-<span class="n">layer</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;allikas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;anekdoot&#39;</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Kihi nimeks sai <code>'quotations'</code> ja atribuute kihil esialgu ei ole. Küll aga andsime kihile edasi info selle kohta, milline on kihile vastav tekst (<code>text_object=text_obj</code>). NB! Kui <code>text_object</code> jääb määramata, siis saab kihile küll märgendusi lisada, aga pole võimalik kuvada selle tekstilist sisu (st seda, millised märgendused millist tekstifragmenti katavad).</p>
-<p>Nagu <code>Text</code> objektile, nii on ka kihile võimalik kaasa anda meta-andmeid atribuudi <code>.meta</code> abil (mis on sisuliselt sõnastik).</p>
-<p>Esialgu on loodud kiht tühi:</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">layer</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r2</span><span class="o">.</span><span class="n">pealkiri</span><span class="p">,</span> <span class="n">r2</span><span class="o">.</span><span class="n">autor</span>
 </pre></div>
 
      </div>
@@ -14859,53 +14789,13 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
-<h4>Metadata</h4>
-<table border="1" class="dataframe">
-  <tbody>
-    <tr>
-      <td>allikas</td>
-      <td>anekdoot</td>
-    </tr>
-  </tbody>
-</table>
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>quotations</td>
-      <td></td>
-      <td>None</td>
-      <td>None</td>
-      <td>False</td>
-      <td>0</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>(&#39;Eestlase käsiraamat&#39;, &#39;Mihkel Raud&#39;)</pre>
 </div>
 
 </div>
@@ -14921,7 +14811,7 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Kasutame nüüd jälle <a href="https://docs.python.org/3.8/library/re.html#re.finditer">finditer</a> meetodit, et leida tekstist kõik jutumärkide-vahelised lõigud, võtame välja lõikude asukohad (algus ja lõpp-indeksid) ning lisame kihile <code>add_annotation</code> meetodi abil. Tulemuseks ongi märgendustega kiht:</p>
+<p>Kui objekt on loodud, võib talle ka uusi isendimuutujaid lisada. Nt võime lisada esimesele raamatule ilmumisaasta:</p>
 
 </div>
 </div>
@@ -14931,13 +14821,10 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">match_obj</span> <span class="ow">in</span> <span class="n">quotations_regexp</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span> <span class="n">text_obj</span><span class="o">.</span><span class="n">text</span> <span class="p">):</span>
-    <span class="n">quotation_start</span> <span class="o">=</span> <span class="n">match_obj</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">quotation_end</span>   <span class="o">=</span> <span class="n">match_obj</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">layer</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span> <span class="p">(</span><span class="n">quotation_start</span><span class="p">,</span> <span class="n">quotation_end</span><span class="p">)</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span><span class="o">.</span><span class="n">ilmumisaasta</span> <span class="o">=</span> <span class="mi">1972</span>
 </pre></div>
 
      </div>
@@ -14945,15 +14832,41 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 </div>
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Oluline on märkida, et hiljem lisatud atribuut on seotud ainult konkreetse isendiga -- see ei kandu edasi teistele sama klassi isenditele. 
+Seega, objektile <code>r1</code> tekkis ilmumisaasta, aga objektil <code>r2</code> seda endiselt pole.
+Kui tahame, et raamatu ilmumisaasta tekiks iga <code>Raamat</code> objekti alla, peame selle ikkagi algväärtustama konstruktoris.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Kogu objekti alla salvestatud info saame sõnastikuna kätte ka atribuudi <code>__dict__</code> abil:</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">layer</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 
      </div>
@@ -14971,68 +14884,13 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
-<h4>Metadata</h4>
-<table border="1" class="dataframe">
-  <tbody>
-    <tr>
-      <td>allikas</td>
-      <td>anekdoot</td>
-    </tr>
-  </tbody>
-</table>
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>quotations</td>
-      <td></td>
-      <td>None</td>
-      <td>None</td>
-      <td>False</td>
-      <td>5</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>"Mu arvutil läks pilt eest ära!"</td>
-    </tr>
-    <tr>
-      <td>"Vaadake, kas kõik juhtmed on sees!"</td>
-    </tr>
-    <tr>
-      <td>"Ei saa, pime on!"</td>
-    </tr>
-    <tr>
-      <td>"Pange siis tuli põlema."</td>
-    </tr>
-    <tr>
-      <td>"Ei saa, elektrit ei ole!"</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;pealkiri&#39;: &#39;Naksitrallid&#39;, &#39;autor&#39;: &#39;Eno Raud&#39;, &#39;ilmumisaasta&#39;: 1972}</pre>
 </div>
 
 </div>
@@ -15041,37 +14899,6 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Rohkem infot märgenduskihtide loomise kohta (kuidas luua eri tüüpi kihte: alamkihte, mitmeseid kihte ja ümbriskihte) leiad <em>estnltk baastarkuste materjalist</em> .</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="M%C3%A4rgendaja-loomine">M&#228;rgendaja loomine<a class="anchor-link" href="#M%C3%A4rgendaja-loomine">&#182;</a></h4><p>Objekt-orienteeritud disainipõhimõtet järgides peaks ka <code>Layer</code> objekt loodama mingi klassi/objekti sees. EstNLTK-s ongi selleks puhuks märgendaja ehk <code>Tagger</code> klass.</p>
-<p>Märgendaja loomiseks tuleb tekitada <code>estnltk.taggers.Tagger</code>-i alamklass ning defineerida:</p>
-<ul>
-<li>klassimuutuja <code>conf_param</code>, mis sisaldab märgendaja konfiguratsiooni;</li>
-<li>konstruktor <code>__init__</code>, mille ülesanne on algseadistada märgendaja (ja vajadusel laadida sisse tööks vajalikud ressursid);</li>
-<li><code>_make_layer_template</code> meetod, mis tekitab ja tagastab tühja kihi ( nn <em>kihi malli</em> ), kus atribuudid on määratud vastavalt märgendaja algseadistusele;</li>
-<li><code>_make_layer</code> meetod, mille ülesanne on tekitada ( <code>_make_layer_template</code> abil) uus märgeduskiht, täita see andmetega ning tagastada;</li>
-</ul>
-
-</div>
-</div>
-</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15080,28 +14907,24 @@ Leiame iga lõigu alguse, lõpu ning tekstisisu:</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <div class="alert alert-block alert-warning">
-<h4><i>Aga kuidas see kõik kokku käib? ( veel tehnilisem jutt )</i></h4>
+<h4><i>Klassimuutujad</i></h4>
 <br>
-Seni oleme teksti märgendamiseks kasutanud <code>tag</code> meetodit, mille rakendamisel toimub aga "taustal" veel 3 meetodi rakendamine. 
-Nendeks meetoditeks on (väljakutsumise järjekorras): <code>make_layer</code> =><code>_make_layer</code> => <code>_make_layer_template</code>. 
-Kõik need meetodid panustavad <code>Layer</code> objekti loomisesse.
-
-<code>Tagger</code>-i <code>tag</code> meetodis kutsutakse kihi loomiseks välja meetod <code>make_layer</code> ning kui kihi loomine õnnestub, riputatakse see <code>Text</code> objekti külge. 
-
-Ka meetod <code>make_layer</code> (NB! ilma alakriipsuta alguses) ei tegele ise kihi tekitamisega, vaid kontrollib enne kihi tekitamist, kas kõik kihi loomiseks vajalikud sisendkihid on olemas, seejärel kutsub kihi tekitamiseks välja <code>Tagger</code>-i meetodi <code>_make_layer</code> ning kõige lõpus kontrollib, kas loodud kiht on valiidse struktuuriga (nt sisaldab deklareeritud atribuute).
-
-Meetod <code>_make_layer</code> kutsub omakorda välja <code>_make_layer_template</code>-i, et tekitada uus märgendaja algseadistusele vastav kiht, täidab kihi andmetega ning tagastab selle. 
-
-Meetodid <code>tag</code> ja <code>make_layer</code> on kõigil märgendajatel ühesugused, neid muuta ega üle defineerida pole tarvis; küll aga tuleb uue <code>Tagger</code>-i loomisel ise implementeerida <code>_make_layer</code> ja <code>_make_layer_template</code>.
-<br><br>
-Aga miks on ikkagi kihi loomine jagatud laiali eri meetodite vahel?
-<br><br>
-<code>tag</code> ja <code>make_layer</code> eristamine on vajalik selleks, et oleks võimalik luua nii lõppkasutaja jaoks mugavaid <code>Text</code>-iga seotud kihte kui ka nn eraldatud kihte (ingl <i>detached layers</i>), mis pole <code>Text</code>-i alla riputatud. Eraldatud kihte kasutab Postgres andmebaasiliides (kihte saab <code>Text</code>-ist eraldi andmebaasi salvestada) ning neid saab kasutada ka rakendustes, kus kihi loomine on ainult ajutine vahe-etapp -- kui loodud kihilt on informatsioon kätte saadud, pole põhjust seda <code>Text</code>-i külge kinnitada, vaid võib selle ka ära visata (nii hoiab näiteks kokku mäluruumi).
-<br>
-<code>make_layer</code> ja <code>_make_layer</code> eristamine võimaldab aga eraldada rutiinsed eel- ja järeltegevused (vajalike sisendkihtide kontroll ja märgenduste valideerimine) otsesest kihi loomisest.
-<br>
-<code>_make_layer</code> ja <code>_make_layer_template</code> võimaldavad eristada kihi malli (milline on kihi struktuur?) ning konkreetsete andmetega täidetud kihti. 
-Selline eristus on vajalik Postgres andmebaasiliideses: kõigepealt fikseeritakse "kihi malli" abil andmete formaat (luuakse uus tabel), misjärel on võimalik juba konkreetsete andmetega täidetud kihtide salvestamine, mis võib toimuda näiteks paralleeltöötluse võtteid kasutades (st mitu lõime/protsessi võivad parallelselt teostada märgenduskihtide loomist ja salvestamist tabelisse).
+Lisaks isendimuutujatele (meie näites: <code>self.pealkiri</code>, <code>self.autor</code> ja <code>self.ilmumisaasta</code>) võib klass sisaldada klassimuutujaid, mille väärtused on ühised üle kõigi antud klassi kuuluvate objektide.
+Klassimuutuja väärtust saab omistada ja muuta klassi nime abil, näiteks:
+<pre>
+>> # Omistame klassimuutujale väärtuse
+>> Raamat.loendur = 2
+>> # Kasutame väärtust
+>> r1.loendur
+2
+>> r2.loendur
+2
+</pre>
+Kui klassi algusesse on lisatud dokumentatsioonisõne ( ingl <i>docstring</i> ), siis saab selle kätte spetsiaalse klassimuutuja <code>__doc__</code> kaudu:
+<pre>
+>> Raamat.__doc__
+'Baasklass raamatute info salvestamiseks.'
+</pre>
 </div>
 </div>
 </div>
@@ -15113,68 +14936,44 @@ Selline eristus on vajalik Postgres andmebaasiliideses: kõigepealt fikseeritaks
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Vaatame nüüd samm-sammult tsitaatide märgendaja defineerimist.</p>
-<p><strong>1)</strong> Impordime vajalikud klassid ning loome <code>QuotationsTagger</code>-i, mis on <code>Tagger</code>-i alamklass (ülemklassi nimi läheb alamklassi nime järele sulgudesse):</p>
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Layer</span>
-<span class="kn">from</span> <span class="nn">estnltk.taggers</span> <span class="kn">import</span> <span class="n">Tagger</span>
-
-<span class="k">class</span> <span class="nc">QuotationsTagger</span><span class="p">(</span><span class="n">Tagger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tags quotations in Text.&quot;&quot;&quot;</span> 
-    <span class="n">conf_param</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;quotations_regexp&#39;</span><span class="p">]</span>
-    <span class="o">...</span>
-</pre></div>
-<p>Kui märgendaja vajab oma tööks mingeid ressursse, siis nende nimed (ehk: vastavate isendimuutujate nimed) tuleb panna klassimuutujasse <code>conf_param</code>. Käesoleval juhul paneme sinna <code>quotations_regexp</code>, kuna meil on plaanis hoida selle nimega muutujas tsitaate eraldavat regulaaravaldist.</p>
-<p><strong>2)</strong> Loome konstruktori, kus on deklareeritud sisendkihid ja väljundkihi nimi, samuti väljundkihi atribuudid ning tööks vajalikud ressursid:</p>
-<div class="highlight"><pre><span></span><span class="o">...</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="c1"># Väljundkihi nimi muudetavaks:</span>
-                       <span class="n">output_layer</span><span class="o">=</span><span class="s1">&#39;quotations&#39;</span><span class="p">):</span>
-        <span class="c1"># sisend-väljundkihid ja atribuudid</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_layers</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span> <span class="o">=</span> <span class="n">output_layer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
-        <span class="c1"># tööks vajalikud ressursid</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quotations_regexp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;(&quot;[^&quot;]+&quot;)&#39;</span><span class="p">)</span>
-    <span class="o">...</span>
-</pre></div>
-<p>Sisendkihte (<code>input_layers</code>) antud juhul pole: regulaaravaldist saame rakendada "toorel tekstil", muid kihte tarvis pole. 
-Väljundkihi nimi on vaikimisi <code>'quotations'</code>, aga seda saab konstruktori parameetriga muuta. 
-Kui kihi nimi on muudetav, on meil võimalik märgendaja arendust versioneerida, st võime tekitada kihid nimedega <code>'quotations_v1'</code>, <code>'quotations_v2'</code> jne ning võrrelda neid omavahel.
-Isendimuutujas <code>output_attributes</code> on loetletud väljundkihi atribuudid; käesolevas näites lisame väljundkihile atribuudi <code>'length'</code>, kuhu hakkame salvestama tsitaatide (sõnede) pikkuseid. 
-Ning lõpuks kompileerime tsitaate eraldava regulaaravaldise ja riputame isendimuutuja <code>self.quotations_regexp</code> alla.</p>
-<p><strong>3)</strong> Loome <code>_make_layer_template</code> meetodi, mille ülesandeks on luua nn kihi mall (ehk siis tühi märgenduskiht, mis vastab märgendaja algseadistusele):</p>
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">_make_layer_template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_attributes</span><span class="p">)</span>
-</pre></div>
-<p>Kihi loomisel kasutame muutujaid <code>self.output_layer</code> ja <code>self.output_attributes</code>, mis annavad märgendaja konfiguratsiooni. 
-Nii on tagatud, et konfiguratsiooni muutes (nt <code>output_layer</code> väärtust muutes) vastaks loodav märgenduskiht konfiguratsioonile.</p>
-<p><strong>4)</strong> Loome <code>_make_layer</code> meetodi, mille ülesandeks on luua etteantud <code>Text</code> objekti põhjal uus märgenduskiht:</p>
-<div class="highlight"><pre><span></span><span class="o">...</span>
-    <span class="k">def</span> <span class="nf">_make_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="c1"># Loome uue kihi</span>
-        <span class="n">layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_layer_template</span><span class="p">()</span>
-        <span class="n">layer</span><span class="o">.</span><span class="n">text_object</span> <span class="o">=</span> <span class="n">text</span>
-        <span class="c1"># Täidame kihi andmetega</span>
-        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">quotations_regexp</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
-            <span class="n">quotation_start</span>  <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">quotation_end</span>    <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">annotation</span>       <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;length&#39;</span><span class="p">:</span><span class="n">quotation_end</span> <span class="o">-</span> <span class="n">quotation_start</span><span class="p">}</span>
-            <span class="n">layer</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span> <span class="p">(</span><span class="n">quotation_start</span><span class="p">,</span> <span class="n">quotation_end</span><span class="p">),</span> <span class="n">annotation</span> <span class="p">)</span>
-        <span class="c1"># Tagastame loodud kihi</span>
-        <span class="k">return</span> <span class="n">layer</span>
-</pre></div>
-<p>Meetod <code>_make_layer</code> saab argumentideks märgendatava <code>text</code>-i (<code>Text</code> objekti), olemasolevate kihtide sõnastiku <code>layers</code> (võtmeteks <code>Text</code> objekti kihinimed ja väärtusteks neile vastavad kihid) ning sõnastiku <code>status</code> (sinna võib salvestada metaandmeid kihi loomise protsessi kohta, <em>a la</em> kas loomine õnnestus või kui palju see aega võttis).</p>
-<p>Edasi luuakse <code>_make_layer_template</code> abil uus (tühi) kiht ning seotakse see ühepoolselt <code>Text</code> objektiga.</p>
-<p>Nagu eelnevas tsitaatide märgendamise näites, nii tuvastame ka nüüd võimalike tsitaatide asukohad <a href="https://docs.python.org/3.8/library/re.html#re.finditer">finditer</a> abil.
-Lisaks leiame iga tuvastatud tsitaadi pikkuse (sümbolites) ning paneme sõnastikku <code>annotation</code> võtme <code>'length'</code> alla.
-Meetod <code>add_annotation</code> võtab 2 sisendargumenti: märgendatav tekstipositsioon <code>(quotation_start, quotation_end)</code> ning märgenduse sisu sõnastiku <code>annotation</code> kujul -- selle sõnastiku põhjal tekitatakse märgendusele atribuudid.</p>
-<p>Töö lõpus tagastame loodud kihi.</p>
-<p>Meetodis <code>_make_layer</code>  meil olemasolevate kihtide sõnastikku <code>layers</code> vaja ei läinudki, kuna <code>self.input_layers = []</code> ehk märgendaja ei nõudnud sisendkihte. 
-Aga kui sisendkihid oleks nõutud, tuleks need sõnastikust välja noppida (nt <code>input_layer_1 = layers[ self.input_layers[0] ]</code>, <code>input_layer_2 = layers[ self.input_layers[1] ]</code> jne) ning seejärel saaks neid kasutada uue kihi tekitamisel.
-Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <code>layers</code>, mitte <code>text</code>-i alt (nagu seda tehakse tavaliselt). Miks? Märgendajat peab olema võimalik kasutada ka eraldatud kihtide loomiseks ehk siis selliste kihtide loomiseks, millest ükski ei ole veel <code>text</code>-i alla riputatud.</p>
+<h3 id="Meetodid">Meetodid<a class="anchor-link" href="#Meetodid">&#182;</a></h3><p>Kasutasime klassi <code>Raamat</code>, et salvestada raamatute kohta käivat informatsiooni.
+Nüüd aga loome uue klassi <code>RaamatuRiiul</code>, mis aitab meil raamatuid koguda ja organiseerida:</p>
 
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">RaamatuRiiul</span><span class="p">:</span>
+    <span class="c1"># konstruktor: tekitab &quot;tühja riiuli&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># isendimuutuja(d)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raamatud</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Lisab uue raamatu riiulisse</span>
+    <span class="k">def</span> <span class="nf">lisa</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">raamat</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">raamatud</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="n">raamat</span> <span class="p">)</span>
+    
+    <span class="c1"># Filtreerib autori nime(osa) järgi</span>
+    <span class="k">def</span> <span class="nf">leia_autori_järgi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">autor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">raamat</span> <span class="k">for</span> <span class="n">raamat</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raamatud</span> <span class="k">if</span> <span class="n">autor</span> <span class="ow">in</span> <span class="n">raamat</span><span class="o">.</span><span class="n">autor</span><span class="p">]</span>
+    
+    <span class="c1"># Filtreerib pealkirja (või selle alamosa) järgi</span>
+    <span class="k">def</span> <span class="nf">leia_pealkirja_järgi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pealkiri</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">raamat</span> <span class="k">for</span> <span class="n">raamat</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raamatud</span> <span class="k">if</span> <span class="n">pealkiri</span> <span class="ow">in</span> <span class="n">raamat</span><span class="o">.</span><span class="n">pealkiri</span><span class="p">]</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15182,7 +14981,9 @@ Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <cod
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Paneme nüüd <code>QuotationsTagger</code>-i koodi kokku üheks klassiks:</p>
+<p>Klassi konstruktor seekord parameetreid ei nõua ning tekitab tühja raamatute listi. 
+Uue raamatu lisamiseks riiulisse on meetod <code>lisa()</code> -- see on lühem kui kirjutada <code>riiul.raamatud.append( ... )</code> ning vajadusel saame sinna hiljem lisada ka kontrolli, et lisatav objekt oleks kindlasti <code>Raamat</code>.
+Meetodid <code>leia_autori_järgi( autor )</code> ja <code>leia_pealkirja_järgi( pealkiri )</code> võimaldavad meil raamaturiiulit inventeerida: saab raamatuid otsida autori nime ning pealkirja (või selle alamosa) järgi.</p>
 
 </div>
 </div>
@@ -15195,39 +14996,12 @@ Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <cod
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
-
-<span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span><span class="p">,</span> <span class="n">Layer</span>
-<span class="kn">from</span> <span class="nn">estnltk.taggers</span> <span class="kn">import</span> <span class="n">Tagger</span>
-
-<span class="k">class</span> <span class="nc">QuotationsTagger</span><span class="p">(</span><span class="n">Tagger</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Tags quotations in Text.&quot;&quot;&quot;</span> 
-    <span class="n">conf_param</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;quotations_regexp&#39;</span><span class="p">]</span>
-    
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="c1"># Väljundkihi nimi muudetavaks:</span>
-                       <span class="n">output_layer</span><span class="o">=</span><span class="s1">&#39;quotations&#39;</span><span class="p">):</span>
-        <span class="c1"># sisend-väljundkihid ja atribuudid</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">input_layers</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span> <span class="o">=</span> <span class="n">output_layer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">output_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">]</span>
-        <span class="c1"># tööks vajalikud ressursid</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">quotations_regexp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;(&quot;[^&quot;]+&quot;)&#39;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">_make_layer_template</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Layer</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_layer</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">output_attributes</span><span class="p">)</span>
-        
-    <span class="k">def</span> <span class="nf">_make_layer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
-        <span class="c1"># Loome uue kihi</span>
-        <span class="n">layer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_layer_template</span><span class="p">()</span>
-        <span class="n">layer</span><span class="o">.</span><span class="n">text_object</span> <span class="o">=</span> <span class="n">text</span>
-        <span class="c1"># Täidame kihi andmetega</span>
-        <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">quotations_regexp</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">text</span><span class="p">):</span>
-            <span class="n">quotation_start</span>  <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">quotation_end</span>    <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">annotation</span>       <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;length&#39;</span><span class="p">:</span><span class="n">quotation_end</span> <span class="o">-</span> <span class="n">quotation_start</span><span class="p">}</span>
-            <span class="n">layer</span><span class="o">.</span><span class="n">add_annotation</span><span class="p">(</span> <span class="p">(</span><span class="n">quotation_start</span><span class="p">,</span> <span class="n">quotation_end</span><span class="p">),</span> <span class="n">annotation</span> <span class="p">)</span>
-        <span class="c1"># Tagastame loodud kihi</span>
-        <span class="k">return</span> <span class="n">layer</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">riiul</span> <span class="o">=</span> <span class="n">RaamatuRiiul</span><span class="p">()</span>
+<span class="n">riiul</span><span class="o">.</span><span class="n">lisa</span><span class="p">(</span><span class="n">r1</span><span class="p">)</span>
+<span class="n">riiul</span><span class="o">.</span><span class="n">lisa</span><span class="p">(</span><span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;Rehepapp&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrus Kivirähk&#39;</span><span class="p">))</span>
+<span class="n">riiul</span><span class="o">.</span><span class="n">lisa</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
+<span class="n">riiul</span><span class="o">.</span><span class="n">lisa</span><span class="p">(</span><span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;Tont ja Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrus Kivirähk&#39;</span><span class="p">))</span>
+<span class="n">riiul</span><span class="o">.</span><span class="n">lisa</span><span class="p">(</span><span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;French ja Koulu&#39;</span><span class="p">,</span> <span class="s1">&#39;Indrek Hargla&#39;</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15235,18 +15009,6 @@ Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <cod
 </div>
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Katsetame. Loome uue märgendaja:</p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15255,8 +15017,8 @@ Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <cod
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quotes_tagger</span> <span class="o">=</span> <span class="n">QuotationsTagger</span><span class="p">()</span>
-<span class="n">quotes_tagger</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">raamat</span> <span class="ow">in</span> <span class="n">riiul</span><span class="o">.</span><span class="n">leia_autori_järgi</span><span class="p">(</span><span class="s1">&#39;Raud&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span> <span class="n">raamat</span><span class="o">.</span><span class="vm">__dict__</span> <span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15274,42 +15036,14 @@ Oluline on rõhutada, et kõik nõutud kihid tuleb võtta just sõnastikust <cod
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Tagger</h4>
-Tags quotations in Text.
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>name</th>
-      <th>output layer</th>
-      <th>output attributes</th>
-      <th>input layers</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>QuotationsTagger</td>
-      <td>quotations</td>
-      <td>('length',)</td>
-      <td>()</td>
-    </tr>
-  </tbody>
-</table>
-<h4>Configuration</h4>
-<table border="1" class="dataframe">
-  <tbody>
-    <tr>
-      <th>quotations_regexp</th>
-      <td>re.compile('("[^"]+")')</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
+<pre>{&#39;pealkiri&#39;: &#39;Naksitrallid&#39;, &#39;autor&#39;: &#39;Eno Raud&#39;, &#39;ilmumisaasta&#39;: 1972}
+{&#39;pealkiri&#39;: &#39;Eestlase käsiraamat&#39;, &#39;autor&#39;: &#39;Mihkel Raud&#39;}
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -15323,13 +15057,13 @@ Tags quotations in Text.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Nüüd, kui märgendaja on olemas, saab seda teksti märgendamiseks välja kutsuda kahel viisil.</p>
-<p><strong>1)</strong> Meetod <code>make_layer</code> tekitab uue kihi ja tagastab selle, aga ei riputa kihti <code>text</code>-i külge -- tegemist on nn eraldatud kihiga:</p>
+<h3 id="Klasside-p%C3%A4rilus-ja-meetodite-%C3%BCledefineerimine.-Klassikuuluvuse-kontrollimine">Klasside p&#228;rilus ja meetodite &#252;ledefineerimine. Klassikuuluvuse kontrollimine<a class="anchor-link" href="#Klasside-p%C3%A4rilus-ja-meetodite-%C3%BCledefineerimine.-Klassikuuluvuse-kontrollimine">&#182;</a></h3><p>Objekt-orienteeritud lähenemisel on veel üks oluline aspekt: klasside abil on võimalik luua hierarhiaid, milles alamklassid pärivad ülemklassidelt meetodid ja atribuudid ning laiendavad ülemklasside funktsionaalsust.</p>
+<p>Näiteks, klassile <code>Raamat</code> võime luua alamklassi <code>LasteRaamat</code>, mis täiendab selle atribuute ühe lisa-atribuudiga -- teeme nii, et lasteraamatul on lisaks pealkirjale ja autorile ka illustraator:</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15337,8 +15071,13 @@ Tags quotations in Text.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">text_str</span><span class="p">)</span>
-<span class="n">quotes_tagger</span><span class="o">.</span><span class="n">make_layer</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LasteRaamat</span><span class="p">(</span><span class="n">Raamat</span><span class="p">):</span>
+    <span class="c1"># konstruktor</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pealkiri</span><span class="p">,</span> <span class="n">autor</span><span class="p">,</span> <span class="n">illustraator</span><span class="p">):</span>
+        <span class="c1"># kutsume välja ülemklassi konstruktori</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">pealkiri</span><span class="p">,</span> <span class="n">autor</span><span class="p">)</span>
+        <span class="c1"># isendimuutuja(d)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">illustraator</span> <span class="o">=</span> <span class="n">illustraator</span>
 </pre></div>
 
      </div>
@@ -15346,84 +15085,20 @@ Tags quotations in Text.
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
-
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>quotations</td>
-      <td>length</td>
-      <td>None</td>
-      <td>None</td>
-      <td>False</td>
-      <td>5</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-      <th>length</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>"Mu arvutil läks pilt eest ära!"</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <td>"Vaadake, kas kõik juhtmed on sees!"</td>
-      <td>36</td>
-    </tr>
-    <tr>
-      <td>"Ei saa, pime on!"</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <td>"Pange siis tuli põlema."</td>
-      <td>25</td>
-    </tr>
-    <tr>
-      <td>"Ei saa, elektrit ei ole!"</td>
-      <td>26</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Kui alamklass kasutab sama nimega meetodeid, mis ülemklass, nimetatakse seda meetodi <em>üledefineerimiseks</em> ( ingl <em>method overloading</em> ).
+Antud näites defineerisime siis üle konstruktori ja nõudsime uues konstruktoris 2 sisendparameetri asemel 3-e.
+Siiski ei toimunud konstruktori funktsionaalsuse täielikku asendamist (mis on ka võimalik), vaid  <code>super().__init__(pealkiri, autor)</code> abil kutsusime kõigepealt välja ülemklassi konstruktori ning seejärel lisasime omalt poolt uue isendimuutuja.</p>
 
 </div>
-
 </div>
-
 </div>
-
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15432,8 +15107,8 @@ Tags quotations in Text.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Tekstil pole veel ühtegi kiht</span>
-<span class="n">text</span><span class="o">.</span><span class="n">layers</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r3</span> <span class="o">=</span> <span class="n">LasteRaamat</span><span class="p">(</span><span class="s1">&#39;Ükskord ühes paigas&#39;</span><span class="p">,</span> <span class="s1">&#39;Vladislav Koržets&#39;</span><span class="p">,</span> <span class="s1">&#39;Hillar Mets&#39;</span><span class="p">)</span>
+<span class="n">r3</span><span class="o">.</span><span class="vm">__dict__</span>
 </pre></div>
 
      </div>
@@ -15457,7 +15132,9 @@ Tags quotations in Text.
 
 
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
-<pre>set()</pre>
+<pre>{&#39;pealkiri&#39;: &#39;Ükskord ühes paigas&#39;,
+ &#39;autor&#39;: &#39;Vladislav Koržets&#39;,
+ &#39;illustraator&#39;: &#39;Hillar Mets&#39;}</pre>
 </div>
 
 </div>
@@ -15473,7 +15150,8 @@ Tags quotations in Text.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>2)</strong> Meetod <code>tag</code> tekitab uue kihi ning tagastab <code>Text</code> objekti-i, kuhu kiht on külge riputatud:</p>
+<h4 id="Klassikuuluvuse-kontroll.-Andmet%C3%BC%C3%BCpide-kontrollimine">Klassikuuluvuse kontroll. Andmet&#252;&#252;pide kontrollimine<a class="anchor-link" href="#Klassikuuluvuse-kontroll.-Andmet%C3%BC%C3%BCpide-kontrollimine">&#182;</a></h4><p>Klasside kasutamisel võib tekkida vajadus kontrollida, kas andmed kuuluvad mingisse klassi või mitte.
+Funktsioon <code>isinstance(obj, Class)</code> kontrollib, kas etteantud objekt ( <em>isend</em> ) kuulub antud klassi või mõnesse selle alamklassi. Näiteks:</p>
 
 </div>
 </div>
@@ -15486,7 +15164,7 @@ Tags quotations in Text.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">quotes_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">Raamat</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15508,41 +15186,9 @@ Tags quotations in Text.
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><div align = "left"></br>Mees helistab arvutiabi telefonile ja kurdab: &quot;Mu arvutil läks pilt eest ära!&quot;</br>&quot;Vaadake, kas kõik juhtmed on sees!&quot; ütleb spetsialist.</br>&quot;Ei saa, pime on!&quot; ütleb hädaline.</br>&quot;Pange siis tuli põlema.&quot;</br>&quot;Ei saa, elektrit ei ole!&quot;</br></div></td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>quotations</td>
-      <td>length</td>
-      <td>None</td>
-      <td>None</td>
-      <td>False</td>
-      <td>5</td>
-    </tr>
-  </tbody>
-</table>
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
 </div>
 
 </div>
@@ -15559,8 +15205,7 @@ Tags quotations in Text.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># uurime külge riputatud kihti</span>
-<span class="n">text</span><span class="o">.</span><span class="n">quotations</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span> <span class="n">LasteRaamat</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15578,84 +15223,13 @@ Tags quotations in Text.
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[14]:</div>
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<script>
-var elements = document.getElementsByClassName("overlapping-span")
-for (let i = 0; i < elements.length; i++){
-    elements.item(i).addEventListener("click",function() {show_conflicting_spans(elements.item(i));})}
 
-function show_conflicting_spans(span_element) {
-    let spantable = document.createElement('div')
-    spantable.classList.add('tables')
-
-    // Prepare the contents of the span table
-    data = span_element.getAttribute("span_info")
-    data = data.split(",")
-    var spancontent = '<table>'
-    for (let row of data) {
-        spancontent+='<tr><td>'
-        spancontent+=row
-        spancontent+='</td></tr>'
-    }
-    spancontent += '</table>'
-    spantable.innerHTML = spancontent
-    span_element.parentElement.appendChild(spantable)
-
-    // Increase the size of the cell so the tables would fit
-    spantable.parentElement.style.height = Math.max(Number(spantable.parentElement.style.height.substring(0,spantable.parentElement.style.height.length-2)),span_element.offsetTop+90)+ 'px'
-    // Position the table directly below the corresponding text
-    spantable.style.left = span_element.getBoundingClientRect().left-spantable.parentElement.parentElement.getBoundingClientRect().left + 'px'
-    spantable.style.top = span_element.getBoundingClientRect().top-spantable.parentElement.parentElement.getBoundingClientRect().top+20+ 'px'
-
-    // Remove the table when clicked on again
-    spantable.addEventListener('click', function () {
-        let element = this.parentElement
-        element.removeChild(this)
-    })
-}
-</script><style>
-.span {
-    background-color: yellow;
-}
-
-.overlapping-span {
-    background-color: red;
-}
-
-.spanline {
-    background-color: blue;
-    position: relative;
-    height: 3px;
-    margin-left: 0px;
-}
-
-.tables {
-    position: absolute;
-    width: fit-content;
-    width: -moz-fit-content;
-    border: 1px solid black;
-}
-
-.maintext{0} {
-    position: relative;
-}
-
-.tables tbody tr:nth-child(even) {
-    background-color: lightgray;
-}
-
-.tables tbody tr:nth-child(odd) {
-    background-color: beige;
-}
-
-.tables tbody tr:hover {
-    background-color: ivory;
-}
-</style><br>Mees helistab arvutiabi telefonile ja kurdab: <span style=background:yellow; ">"Mu arvutil läks pilt eest ära!"</span><br><span style=background:yellow; ">"Vaadake, kas kõik juhtmed on sees!"</span> ütleb spetsialist.<br><span style=background:yellow; ">"Ei saa, pime on!"</span> ütleb hädaline.<br><span style=background:yellow; ">"Pange siis tuli põlema."</span><br><span style=background:yellow; ">"Ei saa, elektrit ei ole!"</span><br>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>False</pre>
 </div>
 
 </div>
@@ -15664,52 +15238,7 @@ function show_conflicting_spans(span_element) {
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="alert alert-block alert-warning">
-<h4><i>Märgendajad vs ümbermärgendajad</i></h4>
-<ul>
-<li>Kui <code>Tagger</code> on mõeldud uue kihi tekitamiseks, siis lisaks on olemas veel  <code>Retagger</code>, mis tegeleb olemasoleva kihi muutmise või parandamisega. Näiteks on <code>Retagger</code>-id morfoloogilise analüüsi kihti muutvad <code>VabamorfDisambiguator</code> (lausepõhine ühestaja) ja <code>UserDictTagger</code> (kasutajasõnastikupõhine parandaja). <code>Retagger</code> liides kasutab samu atribuute, mis <code>Tagger</code>, aga meetodite nimed on teistsugused: <code>_make_layer(...)</code> asemel on <code>_change_layer(...)</code>, <code>make_layer(...)</code> asemel <code>change_layer(...)</code> ning <code>tag(...)</code> asemel <code>retag(...)</code>;</li>
-<li>Detailsemat informatsiooni ja lisanäiteid märgendajate / ümbermärgendajate tekitamise kohta leiad estnltk baastarkuste materjalist.</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%C3%9Clesanne-1.-Naise--ja-mehenimede-mainimiste-anal%C3%BC%C3%BCs-(4-p)">&#220;lesanne 1. Naise- ja mehenimede mainimiste anal&#252;&#252;s (4 p)<a class="anchor-link" href="#%C3%9Clesanne-1.-Naise--ja-mehenimede-mainimiste-anal%C3%BC%C3%BCs-(4-p)">&#182;</a></h3><p>Esimeseks ülesandeks on luua märgendaja (<code>Tagger</code> alamklass), mis määrab kõigi isikunimena märgendendatud nimeüksuste soo. 
-Ehk siis: tuvastab, kas tegemist on naise- või mehenimega. 
-Ülesande teises osas tuleb märgendaja abil analüüsida nimede/sugude mainimissagedusi ajakirjanduskorpuses.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="1.1-NameGenderTagger-(2-p)">1.1 <code>NameGenderTagger</code> (2 p)<a class="anchor-link" href="#1.1-NameGenderTagger-(2-p)">&#182;</a></h4><p>Loo märgendaja (<code>Tagger</code>), mille sisendkihid on <em>nimeüksuste</em> ja <em>morfoloogiliste analüüside kihid</em>, ning mis määrab kõigile isikunimena märgendendatud nimeüksustele soo.</p>
-<p>Ette on antud funktsioon <code>name_gender_finder</code>, mis juba teostab nimede soo määramist, kasutades  sugude määramisel Vikipeedia nimeloendeid (pärinevad <a href="https://et.wikipedia.org/wiki/Naisenimede_loend">siit</a> ja <a href="https://et.wikipedia.org/wiki/Mehenimede_loend">siit</a>).</p>
-<p>Eesmärgiks on kirjutada funktsioon ümber EstNLTK <code>Tagger</code>-i kujule: märgendaja <code>__init__</code> meetodis peab toimuma ressursside (nimeloendite) sisselaadimine ja märgendaja algseadistamine, <code>_make_layer_template</code> peab looma tühja algseadistatud kihi ning <code>_make_layer</code> peab täitma kihi märgendustega ning tagastama selle.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15717,59 +15246,7 @@ Ehk siis: tuvastab, kas tegemist on naise- või mehenimega.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">name_gender_finder</span><span class="p">(</span> <span class="n">text</span><span class="p">,</span> <span class="n">male_names_file</span><span class="o">=</span><span class="s1">&#39;mehenimed.txt&#39;</span><span class="p">,</span> <span class="n">female_names_file</span><span class="o">=</span><span class="s1">&#39;naisenimed.txt&#39;</span> <span class="p">):</span>
-    <span class="c1"># kontrollime, kas vajalikud sisendkihid on olemas</span>
-    <span class="k">assert</span> <span class="s1">&#39;ner&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">layers</span><span class="p">,</span> <span class="s1">&#39;(!) The input text is missing &quot;ner&quot; layer &#39;</span>
-    <span class="k">assert</span> <span class="s1">&#39;morph_analysis&#39;</span> <span class="ow">in</span> <span class="n">text</span><span class="o">.</span><span class="n">layers</span><span class="p">,</span> <span class="s1">&#39;(!) The input text is missing &quot;morph_analysis&quot; layer &#39;</span>
-    <span class="c1"># loeme sisse nimede loendid</span>
-    <span class="n">male_names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">male_names_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">in_f</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">male_names</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">female_names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">female_names_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">in_f</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">in_f</span><span class="p">:</span>
-            <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-            <span class="n">female_names</span><span class="p">[</span><span class="n">line</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="c1"># Itereerime üle sisendkihtide (nimeüksused ja morf analüüsid)</span>
-    <span class="n">morph_word_index</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="n">morph_layer</span> <span class="o">=</span> <span class="n">text</span><span class="p">[</span> <span class="s1">&#39;morph_analysis&#39;</span> <span class="p">]</span>
-    <span class="k">for</span> <span class="n">ner_phrase</span> <span class="ow">in</span> <span class="n">text</span><span class="p">[</span> <span class="s1">&#39;ner&#39;</span> <span class="p">]:</span>
-        <span class="k">if</span> <span class="n">ner_phrase</span><span class="o">.</span><span class="n">nertag</span> <span class="o">==</span> <span class="s1">&#39;PER&#39;</span> <span class="ow">or</span> <span class="nb">list</span><span class="p">(</span><span class="n">ner_phrase</span><span class="o">.</span><span class="n">nertag</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="s1">&#39;PER&#39;</span><span class="p">]:</span>
-            <span class="c1"># Leiame morf analüüside kihi abil nimeüksuse lemmad</span>
-            <span class="n">phrase_start</span> <span class="o">=</span> <span class="n">ner_phrase</span><span class="o">.</span><span class="n">start</span>
-            <span class="n">phrase_end</span> <span class="o">=</span> <span class="n">ner_phrase</span><span class="o">.</span><span class="n">end</span>
-            <span class="n">phrase_lemmas</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">while</span> <span class="n">morph_word_index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">morph_layer</span> <span class="p">):</span>
-                <span class="n">morph_word</span> <span class="o">=</span> <span class="n">morph_layer</span><span class="p">[</span> <span class="n">morph_word_index</span> <span class="p">]</span>
-                <span class="k">if</span> <span class="n">phrase_start</span> <span class="o">&lt;=</span> <span class="n">morph_word</span><span class="o">.</span><span class="n">start</span> <span class="ow">and</span> \
-                   <span class="n">morph_word</span><span class="o">.</span><span class="n">end</span> <span class="o">&lt;=</span> <span class="n">phrase_end</span><span class="p">:</span>
-                    <span class="n">lemmas</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="nb">set</span><span class="p">(</span><span class="n">morph_word</span><span class="o">.</span><span class="n">lemma</span><span class="p">)</span> <span class="p">)</span>
-                    <span class="n">phrase_lemmas</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span> <span class="n">lemmas</span> <span class="p">)</span>
-                    <span class="n">phrase_lemmas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="s1">&#39;***&#39;</span> <span class="p">)</span> <span class="c1"># märgime sõnalõpu</span>
-                <span class="k">elif</span> <span class="n">phrase_end</span> <span class="o">&lt;</span> <span class="n">morph_word</span><span class="o">.</span><span class="n">start</span><span class="p">:</span>
-                    <span class="k">break</span>
-                <span class="k">if</span> <span class="n">morph_word</span><span class="o">.</span><span class="n">end</span> <span class="o">==</span> <span class="n">phrase_end</span><span class="p">:</span>
-                    <span class="k">break</span>
-                <span class="n">morph_word_index</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="c1"># Otsustame lemmade põhjal nime soo (vaikimisi on sugu määramata)</span>
-            <span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;UNK&#39;</span>
-            <span class="k">for</span> <span class="n">lemma</span> <span class="ow">in</span> <span class="n">phrase_lemmas</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">lemma</span> <span class="ow">in</span> <span class="n">male_names</span><span class="p">:</span>
-                    <span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;M&#39;</span>
-                    <span class="k">if</span> <span class="n">lemma</span> <span class="ow">in</span> <span class="n">female_names</span><span class="p">:</span>
-                        <span class="c1"># ambiguous gender: can be both m/f</span>
-                        <span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;AMB&#39;</span>
-                    <span class="k">break</span>
-                <span class="k">elif</span> <span class="n">lemma</span> <span class="ow">in</span> <span class="n">female_names</span><span class="p">:</span>
-                    <span class="n">gender</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span>
-                    <span class="k">break</span>
-                <span class="k">if</span> <span class="n">lemma</span> <span class="o">==</span> <span class="s1">&#39;***&#39;</span><span class="p">:</span>
-                    <span class="c1"># Vaatame ainult nime esimest sõna (ehk eesnime)</span>
-                    <span class="k">break</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; Leidsin nime: &#39;</span><span class="p">,</span> <span class="n">text</span><span class="o">.</span><span class="n">text</span><span class="p">[</span><span class="n">phrase_start</span><span class="p">:</span><span class="n">phrase_end</span><span class="p">],</span> 
-                           <span class="s1">&#39; sugu:&#39;</span><span class="p">,</span> <span class="n">gender</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r3</span><span class="p">,</span> <span class="n">LasteRaamat</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15777,6 +15254,43 @@ Ehk siis: tuvastab, kas tegemist on naise- või mehenimega.
 </div>
 </div>
 
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[15]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Sisuliselt saab funktsiooni kasutada ka muude andmetüüpide kontrollimisel, nt võime kontrollida, kas etteantud muutuja on täisarv:</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15785,26 +15299,8 @@ Ehk siis: tuvastab, kas tegemist on naise- või mehenimega.
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Näide funktsiooni rakendamisest</span>
-<span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span>
-<span class="kn">from</span> <span class="nn">estnltk.taggers</span> <span class="kn">import</span> <span class="n">NerTagger</span>
-<span class="n">ner_tagger</span> <span class="o">=</span> <span class="n">NerTagger</span><span class="p">()</span>
-<span class="c1"># Loome näidisteksti</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">Siim Pohlak palus riigikogu kõnepuldis elukaaslase kätt</span>
-
-<span class="s1">Kalle Laanet (Reformierakond): kas ma olen õigesti aru saanud, et teie ei ole abielus ja kui te ei ole abielus, siis miks te ei ole?</span>
-<span class="s1">Siim Pohlak: ma ei tea, kas te rahuldute selle vastusega, et jah, mul on pikalt olnud plaan oma laste ema omale abikaasaks kosida.</span>
-
-<span class="s1">Oudekki Loone (Keskerakond): kui hakatakse korraldama rahvahääletust, hakatakse tegema kampaaniat. Kuidas referendumite rahastamise kampaaniatega on? Kas sihtasutuste toetused peaks olema valikud? </span>
-<span class="s1">Siim Pohlaku sõnul on seda arutamise koht. </span>
-
-<span class="s1">Kaja Kallas (Reformierakond): kas on võimalus, et koalitsiooni sõnastus muutub.</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">()</span>
-<span class="c1"># Märgendame nimeüksused</span>
-<span class="n">ner_tagger</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="c1"># Määrame nimede soo</span>
-<span class="n">name_gender_finder</span><span class="p">(</span> <span class="n">text</span> <span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15822,18 +15318,15 @@ Ehk siis: tuvastab, kas tegemist on naise- või mehenimega.
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre> Leidsin nime:  Siim Pohlak  sugu: M
- Leidsin nime:  Kalle Laanet  sugu: M
- Leidsin nime:  Siim Pohlak  sugu: M
- Leidsin nime:  Oudekki Loone  sugu: F
- Leidsin nime:  Siim Pohlaku  sugu: M
- Leidsin nime:  Kaja Kallas  sugu: F
-</pre>
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
 </div>
+
 </div>
 
 </div>
@@ -15847,59 +15340,7 @@ Ehk siis: tuvastab, kas tegemist on naise- või mehenimega.
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Lisaks nimede märgendamisele tuleks kihi ka loendada leitud nimesid ning kihi metaandmete alla salvestada loenduse tulemused. 
-Seega, rakendatuna eelmisel näitetekstil peaks <code>NameGenderTagger</code> tekitama taolise kihi:</p>
-<p><img src="valjundikihi_naide.png" alt="alt text" title="Näide märgendatud kihist"></p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Maksimumpunktid märgendaja eest saab kui: 1) sisend- ja väljundkihid on korrektselt defineeritud ning kihinimed (konstruktori kaudu) muudetavad; 2) konstruktori kaudu saab määrata ressursifailide nimesid, 3) märgendaja tööks vajalike ressursside ettevalmistus toimub konstruktoris  ning <code>_make_layer</code> kasutab märgendamisel juba olemasolevaid ressursse (isendmuutujaid).</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h4 id="1.2-Nimede-mainimine-sugude-l%C3%B5ikes-ajakirjanduskorpuses-(2-p)">1.2 Nimede mainimine sugude l&#245;ikes ajakirjanduskorpuses (2 p)<a class="anchor-link" href="#1.2-Nimede-mainimine-sugude-l%C3%B5ikes-ajakirjanduskorpuses-(2-p)">&#182;</a></h4><p>Rakenda morfoloogilist analüüsi ja <code>NameGenderTagger</code>-it kataloogi <code>'aja_pm_EPL'</code> ajaleheartiklitel ning leia: 1) kõigi mainitud isikunimede jaotus sugude kaupa; 2) mainitud isikunimede jaotus sugude kaupa rubriikide lõikes.</p>
-<ul>
-<li><strong>NB!</strong> Korpuses on juba märgendatud nimeüksused (vt kiht nimega <code>'named_entities_flat'</code>), seega nimeüksuste kihti uuesti looma ei pea. <code>NameGenderTagger</code>-i peaks olema võimalik nii rakendada, et <code>__init__</code> meetodi kaudu saab vajadusel ümber muuta nimeüksuste sisendkihi nime;</li>
-<li>Igal artiklil on ka metaandmed; artikli rubriik on metaandmetes võtme <code>'rubriik'</code> all;</li>
-</ul>
-<p>Arutelu (kirjalikud vastused):</p>
-<ul>
-<li><p>Kui suur on <em>määramata</em> sooga isikunimede osakaal? Kas see mõjutab loendustulemuste usaldusväärsust?</p>
-</li>
-<li><p>Uuri tulemusi detailsemalt ja paku vähemalt üks viis, kuidas saaks sugude määramise funktsionaalsust paremdada?</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<hr>
-<h2 id="Osalausestamine">Osalausestamine<a class="anchor-link" href="#Osalausestamine">&#182;</a></h2><p>Osalausestaja abil saab pikad ja keeruka struktuuriga laused jagada väiksemateks/lihtsamateks juppideks: osalauseteks. 
-Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitverbi) ning sellega süntaktiliselt seotud sõnu.</p>
-<p>Vaatame üht näidet osalausestaja kasutamise kohta:</p>
+<p>Funktsioon <code>issubclass(sub, sup)</code> kontrollib, kas etteantud klass <code>sub</code> on klassi <code>sup</code> alamklass. Näiteks:</p>
 
 </div>
 </div>
@@ -15912,16 +15353,7 @@ Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitver
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span>
-
-<span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;Igaüks, kes traktori eest miljon krooni lauale laob, on huvitatud sellest, &#39;</span><span class="o">+</span>\
-       <span class="s1">&#39;et traktor meenutaks lisavõimaluste poolest võimalikult palju kosmoselaeva.&#39;</span>
-
-<span class="c1"># Osalausestame teksti:</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">(</span><span class="s1">&#39;clauses&#39;</span><span class="p">)</span>
-
-<span class="c1"># Kõik osalaused</span>
-<span class="n">text</span><span class="o">.</span><span class="n">clauses</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="n">LasteRaamat</span><span class="p">,</span> <span class="n">Raamat</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15943,54 +15375,9 @@ Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitver
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
 
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>clauses</td>
-      <td>clause_type</td>
-      <td>None</td>
-      <td>words</td>
-      <td>False</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-      <th>clause_type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>['Igaüks', 'on', 'huvitatud', 'sellest', ',']</td>
-      <td>regular</td>
-    </tr>
-    <tr>
-      <td>[',', 'kes', 'traktori', 'eest', 'miljon', 'krooni', 'lauale', 'laob', ',']</td>
-      <td>embedded</td>
-    </tr>
-    <tr>
-      <td>['et', 'traktor', 'meenutaks', 'lisavõimaluste', 'poolest', 'võimalikult', 'palj ..., type: &lt;class 'list'&gt;, length: 9</td>
-      <td>regular</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
 </div>
 
 </div>
@@ -15999,66 +15386,6 @@ Enamasti ongi osalaused lihtlause-sarnased: sisaldavad ühte peaverbi (finiitver
 
 </div>
 
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ul>
-<li><em>Tehniline märkus:</em> nagu ajaväljendite tuvastaja ja süntaksianalüsaator (Maltparser), nii kasutab ka EstNLTK osalausestaja <code>java</code>-t. Seetõttu läheb esmakordsel <code>tag_layer(['clauses'])</code> väljakutsel tavaliselt natukene rohkem aega, kuna toimub <code>java</code> komponendi initsialiseerimine;</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Osalausestaja eristab kahte liiki osalauseid:</p>
-<ul>
-<li><code>regular</code> -- tavalised osalaused, mis on tüüpiliselt üksteisest eraldatud koma ja/või sidesõnade (ja, ning, et, sest, kuid vms) abil; eelmises näites on tavalised osalaused "Igaüks on huvitatud sellest" ja "et traktor meenutaks lisavõimaluste poolest võimalikult palju kosmoselaeva." ;</li>
-<li><p><code>embedded</code> -- kiillaused, mis on sisestatud mingi lause või osalause sisse ning jagavad selle kaheks tükiks*; eelmises näites: "kes traktori eest miljon krooni lauale laob" on kiillause lause "Igaüks on huvitatud sellest" sees;</p>
-<p>* NB! Osalausestaja kiillausete käsitlus ei ühti eesti keele traditsiooniliste grammatikakirjelduste EKG II ja <a href="http://www.eki.ee/books/ekk09/index.php?id=482&amp;p=5&amp;p1=3">EKK</a> kiillausete definitsiooniga. Milliseid süntaktilisi üksusi ja miks osalausestajas kiillauseteks nimetatakse, seda selgitab detailsemalt programmi kirjeldav <a href="http://arhiiv.rakenduslingvistika.ee/ajakirjad/index.php/aastaraamat/article/view/ERYa8.04">Kaalepi ja Muischneki artikkel</a></p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Milleks on osalausete tuvastajat tarvis? Osalausestatud tekstide peal on võimalik uurida mitmeid keelenähtuseid, mida automaatne  süntaksianalüüs veel lahendada ei oska või mille lahendus vajab täiustamist.</p>
-<p>Üheks selliseks keelenähtuseks on <em>kollokatsioonid</em> ehk sõnade koosesinemised, millega sageli kaasneb ka eraldiseisev/metafoorne tähendus ( nt "hea seisma", "hambasse puhuma", "õppust võtma" ). Kollokatsioonide automaatne tuvastamine nõuab kõigepealt, et piiritleme konteksti, mille seest kollokatsioonikandidaate otsime. Kui kontekstiks valida terve lause, siis liitlausete puhul jääb sõelale üksjagu "prahti" ehk siis selliseid sõnapaare, mis ületavad osalausepiire ning ei saa olla kollokatsioonid. Seega saab osalausestamise tulemust aluseks võttes leida täpsemad kollokatsioonikandidaadid.</p>
-<p>Teiseks keelenähtuseks on sõnadevahelised <em>rektsiooniseosed</em> ehk süntaksiseosed, kus üks sõna määrab teise olemasolu ja vormi lauses. Näiteks, verb 'hoolima' tingib sageli seestütlevas käändes sõna esinemise lauses ( "Kas sa hoolid <strong>temast</strong> ?" ) ning verb 'tutvustama' osastavas ja alaleütlevas käändes sõnad ( "Konsul tutvustab <strong>kuurorti</strong> ka oma <strong>kaasmaalastele</strong>." ). Ka rektsiooniseoste uurimisel aitab osalausestamine täpsemalt piiritleda konteksti, mille sees seosed võivad sõnade vahel esineda (rektsiooniseosed tüüpiliselt ei ületa osalausepiire), ning seega parandada analüüsi kvaliteeti.</p>
-
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Osalausestamine-ja-komavead">Osalausestamine ja komavead<a class="anchor-link" href="#Osalausestamine-ja-komavead">&#182;</a></h3><p>Osalausestaja eeldab vaikimisi, et ortograafiareegleid on järgitud täpselt ning komad paiknevad seal, kus nad peaksid olema. Seega, kui analüüsitavast tekstist on mõni osalauseid eraldav koma puudu, siis kannatab ka osalausestamise kvaliteet.</p>
-<p>Siiski sisaldab osalausestaja ka eksperimentaalset režiimi, mille puhul üritatakse osalausepiire määrata ka siis, kui komad on puudu. 
-Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</code>), millel on sisse lülitatud komavigade-suhtes-vähetundlikkuse lipp (<code>ignore_missing_commas=True</code>):</p>
-
-</div>
-</div>
-</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16067,23 +15394,7 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">estnltk</span> <span class="kn">import</span> <span class="n">Text</span>
-<span class="kn">from</span> <span class="nn">estnltk.taggers</span> <span class="kn">import</span> <span class="n">ClauseSegmenter</span>
-
-<span class="c1"># Tekitame komavigade-suhtes-vähetundliku osalausestaja</span>
-<span class="c1"># Muudame väljundkihi nime nii, et see oleks eristatav tavalisest osalausete kihist</span>
-<span class="n">new_segmenter</span> <span class="o">=</span> <span class="n">ClauseSegmenter</span><span class="p">(</span> <span class="n">output_layer</span><span class="o">=</span><span class="s1">&#39;clauses_ignore_missing_commas&#39;</span><span class="p">,</span> 
-                                 <span class="n">ignore_missing_commas</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
-
-<span class="c1"># Tekitame analüüsitava näidisteksti</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">Text</span><span class="p">(</span><span class="s1">&#39;Keegi teine ka siin ju kirjutas et ütles et saab ise asjadele järgi minna &#39;</span><span class="o">+</span>\
-            <span class="s1">&#39;aga vastust seepeale ei tulnudki.&#39;</span><span class="p">)</span>
-<span class="c1"># Lisame nõutud sisendkihid</span>
-<span class="n">text</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">([</span><span class="s1">&#39;words&#39;</span><span class="p">,</span><span class="s1">&#39;sentences&#39;</span><span class="p">,</span><span class="s1">&#39;morph_analysis&#39;</span><span class="p">])</span>
-
-<span class="c1"># Lisame osalausete märgenduse ja uurime tulemusi</span>
-<span class="n">new_segmenter</span><span class="o">.</span><span class="n">tag</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="n">text</span><span class="p">[</span><span class="s1">&#39;clauses_ignore_missing_commas&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="n">LasteRaamat</span><span class="p">,</span> <span class="n">RaamatuRiiul</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16105,58 +15416,9 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
 
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>clauses_ignore_missing_commas</td>
-      <td>clause_type</td>
-      <td>None</td>
-      <td>words</td>
-      <td>False</td>
-      <td>4</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-      <th>clause_type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>['Keegi', 'teine', 'ka', 'siin', 'ju', 'kirjutas']</td>
-      <td>regular</td>
-    </tr>
-    <tr>
-      <td>['et', 'ütles']</td>
-      <td>regular</td>
-    </tr>
-    <tr>
-      <td>['et', 'saab', 'ise', 'asjadele', 'järgi', 'minna']</td>
-      <td>regular</td>
-    </tr>
-    <tr>
-      <td>['aga', 'vastust', 'seepeale', 'ei', 'tulnudki', '.']</td>
-      <td>regular</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>False</pre>
 </div>
 
 </div>
@@ -16165,6 +15427,19 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 
 </div>
 
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Oluline on täheldada, et mõlemad sisendparameetrid (<code>sub</code> ja <code>sup</code>) <strong>peavad olema klassid</strong> , vastasel juhul annab funktsioon veateate. 
+Kui soov on kontrollida klassi isendit, tuleb isendi atribuuti <code>__class__</code> abil välja tuua selle klass:</p>
+
+</div>
+</div>
+</div>
 </div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16173,9 +15448,7 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Võrdluseks uurime ka tavalist osalausete kihti</span>
-<span class="n">text</span><span class="o">.</span><span class="n">tag_layer</span><span class="p">([</span><span class="s1">&#39;clauses&#39;</span><span class="p">])</span>
-<span class="n">text</span><span class="p">[</span><span class="s1">&#39;clauses&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="n">Raamat</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16197,46 +15470,9 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 
 
 
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html">
-<h4>Layer</h4>
 
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>layer name</th>
-      <th>attributes</th>
-      <th>parent</th>
-      <th>enveloping</th>
-      <th>ambiguous</th>
-      <th>span count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>clauses</td>
-      <td>clause_type</td>
-      <td>None</td>
-      <td>words</td>
-      <td>False</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>text</th>
-      <th>clause_type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>['Keegi', 'teine', 'ka', 'siin', 'ju', 'kirjutas', 'et', 'ütles', 'et', 'saab',  ..., type: &lt;class 'list'&gt;, length: 20</td>
-      <td>regular</td>
-    </tr>
-  </tbody>
-</table>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
 </div>
 
 </div>
@@ -16252,11 +15488,93 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Lisainformatsiooni osalausestaja kohta vt <a href="https://github.com/estnltk/estnltk/blob/main/tutorials/nlp_pipeline/A_text_segmentation/06_clauses.ipynb">EstNLTK dokumentatsioonist</a>.</p>
+<p>Alternatiivne ja üldisem viis objekti klassi kättesaamiseks on funktsioon <code>type( obj )</code>:</p>
 
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>__main__.LasteRaamat</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">issubclass</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">r3</span><span class="p">),</span> <span class="n">Raamat</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[21]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16264,52 +15582,53 @@ Et seda režiimi kasutada, tuleb luua uus osalausestaja (<code>ClauseSegmenter</
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<div class="alert alert-block alert-warning">
-<h4><i>Lünkadega märgenduse eripärad</i></h4>
-<br>
-Osalausestuse puhul on tegemist nn lünkadega märgendusega -- kui ülem-osalause sees on kiillause, siis sisuliselt on seal keset osalauset lünk, mis jagab osalause kaheks tükiks. 
+<p>Funktsioon <code>type</code> tagastab etteantud muutuja või andmestruktuuri tüübi, objekti puhul klassi. 
+Seda funktsiooni saab rakendada ka tavaliste andmetüüpide kontrollimisel, näiteks:</p>
 
-<b>Osalause tekstisisu.</b> Lünkadega märgenduse puhul tuleb arvestada sellega, et teksisisu tagastav <code>clause.enclosing_text</code> ei tööta korrektselt: kiillaused jäetakse ülem-osalausete seest välja võtmata. Seega <code>enclosing_text</code> asemel on parem kasutada:
-<pre>
-' '.join([word_span.text for word_span in clause])
-</pre>
-mis annab ligilähedaselt korrektse tulemuse -- eeldusel, et tühikute arv ja kuju osalauses pole olulised.
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Tsau-pakaa!&#39;</span><span class="p">)</span>
+</pre></div>
 
-<b>Teksti tükeldamine.</b> Osalausete kihi järgi teksti tükeldamiseks saab kasutada funktsiooni <code>split_by()</code>:
-<pre>
-from estnltk_core.layer_operations import split_by
-clauses = split_by(text, 'clauses')
-</pre>
-See toimib korrektselt eeldusel, et osalausete kihi nimetus on <code>'clauses'</code>. 
-Kui kihi nime on muudetud (nt <code>'my_clauses'</code>), siis <code>split_by(text, 'my_clauses')</code> teostab küll tükeldamise, aga ei oska lünkadega arvestada: jätab kiillaused ülem-osalausete seest välja võtmata. 
-Kui tahad kihi nimest sõltumatult saada korrektset osalauseteks tükeldust, siis selleks on funktsioon <code>split_by_clauses</code>:
-<pre>
-from estnltk_core.layer_operations import split_by_clauses
-clauses = split_by_clauses(text, input_clauses_layer='my_clauses')
-</pre>
+     </div>
+</div>
+</div>
+</div>
 
-<b>Itereerimine.</b> Selleks, et itereerida üle osalausete ja morf analüüside, võib kasutada:
-<pre>
-# pöördume otse osalausete kihi poole
-for clause_spanlist in text.clauses:
-    print(clause_spanlist.text)
-    for word_span in clause_spanlist:
-        # Kuna 'morph_analysis' on 'words' alamkiht, saame selle 
-        # kaudu kätte morf analüüsid, sh sõnaliigid
-        print('   ', word_span.text,'\t', word_span.morph_analysis.partofspeech)
-</pre>
-või
-<pre>
-# grupeerime morfoloogilised analüüsid (ehk siis: sõnad) osalausete kaupa
-for clause_spanlist in text.morph_analysis.groupby( text.clauses ):
-    print(clause_spanlist.text)
-    for morph_span in clause_spanlist:
-        print('   ',morph_span.text,'\t',morph_span.partofspeech)
-</pre>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
 </div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>str</pre>
 </div>
+
 </div>
+
 </div>
+
+</div>
+
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -16317,8 +15636,7 @@ for clause_spanlist in text.morph_analysis.groupby( text.clauses ):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Harjutus:-osalausekihtide-v%C3%B5rdlemine">Harjutus: osalausekihtide v&#245;rdlemine<a class="anchor-link" href="#Harjutus:-osalausekihtide-v%C3%B5rdlemine">&#182;</a></h3><p>Lisa lausele <em>"Minu arvates on see lahe ettevõtmine ja ma loodan väga et neil läheb hästi."</em> tavaline osalausete kiht ning komavigade-suhtes-vähetundliku osalausestaja kiht.</p>
-<p>Võrdle kahte kihti ning väljasta: 1) mõlemas kihis kattuvad osalaused, 2) osalaused, mille tuvastas ainult komavigade-suhtes-vähetundlik osalausestaja.</p>
+<h3 id="Andmeklassid-(@dataclass-dekoraator)">Andmeklassid (@dataclass dekoraator)<a class="anchor-link" href="#Andmeklassid-(@dataclass-dekoraator)">&#182;</a></h3><p>Alates Pythoni versioonist 3.7 on võimalik andmeklasse (nagu <code>Raamat</code> ja <code>LasteRaamat</code> eelmistes näidetes) luua ka mallipõhiselt, kasutades <a href="https://realpython.com/primer-on-python-decorators/">dekoraatorit</a> <code>@dataclass</code>. Näide:</p>
 
 </div>
 </div>
@@ -16328,15 +15646,152 @@ for clause_spanlist in text.morph_analysis.groupby( text.clauses ):
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+
+<span class="c1"># dataclass -- peame ainult defineerima isendimuutujad, </span>
+<span class="c1"># konstruktor luuakse nende põhjal automaatselt</span>
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">Raamat</span><span class="p">:</span>
+    <span class="s1">&#39;Baasklass raamatute info salvestamiseks.&#39;</span>
+    <span class="n">pealkiri</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">autor</span><span class="p">:</span> <span class="nb">str</span>
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">LasteRaamat</span><span class="p">(</span><span class="n">Raamat</span><span class="p">):</span>
+    <span class="n">illustraator</span><span class="p">:</span> <span class="nb">str</span>    
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span> <span class="o">=</span> <span class="n">Raamat</span><span class="p">(</span><span class="s1">&#39;Rehepapp&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrus Kivirähk&#39;</span><span class="p">)</span>
+<span class="n">r1</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[24]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>Raamat(pealkiri=&#39;Rehepapp&#39;, autor=&#39;Andrus Kivirähk&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r1</span><span class="o">.</span><span class="vm">__dict__</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[25]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>{&#39;pealkiri&#39;: &#39;Rehepapp&#39;, &#39;autor&#39;: &#39;Andrus Kivirähk&#39;}</pre>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r2</span> <span class="o">=</span> <span class="n">LasteRaamat</span><span class="p">(</span><span class="s1">&#39;Tont ja Facebook&#39;</span><span class="p">,</span> <span class="s1">&#39;Andrus Kivirähk&#39;</span><span class="p">,</span> <span class="s1">&#39;Heiki Ernits&#39;</span><span class="p">)</span>
+<span class="n">r2</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[26]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>LasteRaamat(pealkiri=&#39;Tont ja Facebook&#39;, autor=&#39;Andrus Kivirähk&#39;, illustraator=&#39;Heiki Ernits&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -16346,24 +15801,18 @@ for clause_spanlist in text.morph_analysis.groupby( text.clauses ):
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="%C3%9Clesanne-2.-V%C3%B5imalike-komavigade-tuvastamine-(3-p)">&#220;lesanne 2. V&#245;imalike komavigade tuvastamine (3 p)<a class="anchor-link" href="#%C3%9Clesanne-2.-V%C3%B5imalike-komavigade-tuvastamine-(3-p)">&#182;</a></h3><p>Proovime nüüd kasutada osalausestajat komavigade tuvastamiseks.</p>
-<p>Ülesandeks on luua programm, mis märgendab tekstis puuduvaid komasid ehk toob esile sõnad, mille eest on koma puudu. 
-Puuduvad komad saab kätte nii: tuleb luua tavaline osalausete kiht, komavigade-suhtes-vähetundlikku osalausestaja osalausete kiht ning võrrelda neid omavahel.
-Kui komavigade-suhtes-vähetundlik osalausestaja tekitas osalause, mille alguspositsioon (<code>start</code>) ei lange kokku ühegi tavalise osalause alguspositsiooniga, siis on tõenäoliselt tegemist osalausega, mille ees peaks olema koma -- esile tulebki tuua sellise osalause esimene sõna.</p>
-<p>Maksimumpunktid saab siis, kui komavigade tuvastaja on realiseeritud kui märgendaja (<code>Tagger</code> alamklass): märgendab tekstis sõnu, mille eest on koma puudu. 
-Märgendaja sisendkihtideks (<code>input_layers</code>) peaks olema kõik need kihid, mis on <code>ClauseSegmenter</code>-i sisendkihtideks, pluss tavaline osalausete kiht (<code>'clauses'</code>).
-Konstruktoris tuleb luua komavigade-suhtes-vähetundlik <code>ClauseSegmenter</code> ning salvestada isendimuutujaks.
-Kihi tekitamine. Komavigade tuvastaja meetodis <code>_make_layer_template</code> luuakse kõigepealt uus tühi kiht, mis vastab konfiguratsioonile. 
-Kihi andmetega täitmise loogika läheb aga komavigade tuvastaja meetodisse <code>_make_layer</code>.
-Seal kasutatakse kõigepealt välja komavigade-suhtes-vähetundlik <code>ClauseSegmenter</code>, et tekitada sisendtekstile alternatiivne osalausete kiht. Kiht tuleks luua osalausestaja meetodi <code>make_layer</code> (NB! ilma alakriipsuta alguses) abil ehk siis tekkima peaks <em>eraldatud osalausete kiht</em> .
-Edasi tuleb võrrelda kaht osalausete kihti: tavalist <code>'clauses'</code> kihti ja komavigade-suhtes-vähetundliku osalausestaja kihti.
-Kui komavigade-suhtes-vähetundlik osalausestaja tekitas osalause, mille alguspositsioon (<code>start</code>) ei lange kokku ühegi tavalise osalause alguspositsiooniga, siis on tõenäoliselt tegemist osalausega, mille ees peaks olema koma, ning märgendada tulebki sellise osalause esimene sõna.
-Märgendaja testimise hõlbustamiseks on hea leitud komavigade arv salvestada märgenduskihi atribuudi <code>.meta</code> alla.</p>
-<p>Testimine. Rakenda puuduvate komade tuvastajat failil <code>'foorumid_xml/Turg_valiidne.xml'</code> ning leia foorumiteema, mille postitustes oli kõige rohkem potentsiaalseid komavigasid.
-Faili avamiseks ja üle teemade itereerimiseks saad kasutada <a href="https://github.com/estnltk/estnltk/blob/main/tutorials/corpus_processing/importing_text_objects_from_corpora.ipynb">EstNLTK TEI korpuse sisselugemise vahendeid</a>.
-Täpsemalt siis funktsioone <code>get_div_target()</code> ja <code>parse_tei_corpus()</code>.
-Tulemusena kuva kõige rohkem potentsiaalseid komavigu sisaldanud teema sisu, milles on ära märgitud puuduvate komadega sõnad (nt kasuta komavigade kihi <code>display()</code> meetodit).</p>
+<div class="alert alert-block alert-warning">
+<h4><i>Täiendavaid viiteid objekt-orienteeritud programmeerimise kohta</i></h4>
+<br>
+<ul>
+<li><a href="https://www.metshein.com/unit/python3-klassid-ja-objektid-ulesanne-8">Python3 – Klassid ja objektid</a> -- eestikeelne sissejuhatav abimaterjal portaalist metshein.com ;</li>
+<li><a href="https://realpython.com/python3-object-oriented-programming">Object-Oriented Programming (OOP) in Python 3</a> -- inglisekeelne materjal, mis annab ülevaate põhikontseptsioonidest;</li>
+<li><a href="https://www.tutorialspoint.com/python/python_classes_objects.htm">Python - Object Oriented @ tutorialspoint</a> -- inglisekeelne materjal, mis tutvustab terminoloogiat ja annab ülevaate põhikontseptsioonidest; </li>    
+<li><a href="https://docs.python.org/3/tutorial/classes.html">Classes in Python</a> -- materjal edasijõudnutele (peamiselt neile, kes on juba tuttavad erinevate programmeerimiskeeltega); </li>
+<li><a href="https://docs.python.org/3.8/library/dataclasses.html">Data Classes in Python</a>;</li>
 
+</ul>
+</div>
 </div>
 </div>
 </div>
