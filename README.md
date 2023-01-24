@@ -4,7 +4,7 @@
 
 <h3 style="color:blue">Praktikumide teemad</h3>
 
- 1. praktikum: Pythoni virtuaalkeskkonnad, Jupyter Notebook ja Pythoni baasteadmiste kordamine
+ 1. praktikum: Pythoni virtuaalkeskkonnad, JupyterLab ja Pythoni baasteadmiste kordamine
  2. praktikum: Teksti segmenteerimine, morfoloogiline analüüs, õigekirjakontroll. Sõnapilved
  3. praktikum: Morfoloogilise analüüsi erijuhud: korpusepõhine ühestamine, analüüs kasutajasõnastiku abil, Giellatekno märgendid
  4. praktikum: Csv-failid. Pandas. Andmete puhastamine. Lihtsad nimisõnafraasid. Märgenduste visualiseerimine I
