@@ -7312,6 +7312,7 @@ a.anchor-link {
                     processEnvironments: true
                 },
                 displayAlign: 'center',
+                messageStyle: 'none',
                 CommonHTML: {
                     linebreaks: {
                     automatic: true
@@ -7331,7 +7332,12 @@ a.anchor-link {
     if (!diagrams.length) {
       return;
     }
-    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs")).default;
+    const mermaid = (await import("https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.0/mermaid.esm.min.mjs")).default;
+    const elkUrl = "https://cdnjs.cloudflare.com/ajax/libs/mermaid-layout-elk/0.1.9/mermaid-layout-elk.esm.min.mjs";
+    if(elkUrl) {
+      const elkLayouts = (await import(elkUrl)).default;
+      mermaid.registerLayoutLoaders(elkLayouts);
+    }
     const parser = new DOMParser();
 
     mermaid.initialize({
@@ -7428,7 +7434,8 @@ a.anchor-link {
      * Post-process to ensure mermaid diagrams contain only valid SVG and XHTML.
      */
     function cleanMermaidSvg(svg) {
-      return svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      svg = svg.replace(RE_VOID_ELEMENT, replaceVoidElement);
+      return `${SVG_XML_HEADER}${svg}`;
     }
 
 
@@ -7454,6 +7461,285 @@ a.anchor-link {
       }
       return `<${tag} ${rest}>`;
     }
+
+
+  /**
+   * Named HTML entities with their decimal equivalent codes.
+   *
+   * @see https://www.w3.org/TR/WD-html40-970708/sgml/entities.html
+   * */
+  const HTML_ENTITIES = `<!ENTITY Aacute "&#193;">
+<!ENTITY aacute "&#225;">
+<!ENTITY Acirc "&#194;">
+<!ENTITY acirc "&#226;">
+<!ENTITY acute "&#180;">
+<!ENTITY AElig "&#198;">
+<!ENTITY aelig "&#230;">
+<!ENTITY Agrave "&#192;">
+<!ENTITY agrave "&#224;">
+<!ENTITY alefsym "&#8501;">
+<!ENTITY Alpha "&#913;">
+<!ENTITY alpha "&#945;">
+<!ENTITY amp "&#38;">
+<!ENTITY and "&#8869;">
+<!ENTITY ang "&#8736;">
+<!ENTITY Aring "&#197;">
+<!ENTITY aring "&#229;">
+<!ENTITY asymp "&#8776;">
+<!ENTITY Atilde "&#195;">
+<!ENTITY atilde "&#227;">
+<!ENTITY Auml "&#196;">
+<!ENTITY auml "&#228;">
+<!ENTITY bdquo "&#8222;">
+<!ENTITY Beta "&#914;">
+<!ENTITY beta "&#946;">
+<!ENTITY brvbar "&#166;">
+<!ENTITY bull "&#8226;">
+<!ENTITY cap "&#8745;">
+<!ENTITY Ccedil "&#199;">
+<!ENTITY ccedil "&#231;">
+<!ENTITY cedil "&#184;">
+<!ENTITY cent "&#162;">
+<!ENTITY Chi "&#935;">
+<!ENTITY chi "&#967;">
+<!ENTITY circ "&#710;">
+<!ENTITY clubs "&#9827;">
+<!ENTITY cong "&#8773;">
+<!ENTITY copy "&#169;">
+<!ENTITY crarr "&#8629;">
+<!ENTITY cup "&#8746;">
+<!ENTITY curren "&#164;">
+<!ENTITY dagger "&#8224;">
+<!ENTITY Dagger "&#8225;">
+<!ENTITY darr "&#8595;">
+<!ENTITY dArr "&#8659;">
+<!ENTITY deg "&#176;">
+<!ENTITY Delta "&#916;">
+<!ENTITY delta "&#948;">
+<!ENTITY diams "&#9830;">
+<!ENTITY divide "&#247;">
+<!ENTITY Eacute "&#201;">
+<!ENTITY eacute "&#233;">
+<!ENTITY Ecirc "&#202;">
+<!ENTITY ecirc "&#234;">
+<!ENTITY Egrave "&#200;">
+<!ENTITY egrave "&#232;">
+<!ENTITY empty "&#8709;">
+<!ENTITY emsp "&#8195;">
+<!ENTITY ensp "&#8194;">
+<!ENTITY epsilon "&#949;">
+<!ENTITY Epsilon "&#917;">
+<!ENTITY equiv "&#8801;">
+<!ENTITY Eta "&#919;">
+<!ENTITY eta "&#951;">
+<!ENTITY ETH "&#208;">
+<!ENTITY eth "&#240;">
+<!ENTITY Euml "&#203;">
+<!ENTITY euml "&#235;">
+<!ENTITY exist "&#8707;">
+<!ENTITY fnof "&#402;">
+<!ENTITY forall "&#8704;">
+<!ENTITY frac12 "&#189;">
+<!ENTITY frac14 "&#188;">
+<!ENTITY frac34 "&#190;">
+<!ENTITY frasl "&#8260;">
+<!ENTITY Gamma "&#915;">
+<!ENTITY gamma "&#947;">
+<!ENTITY ge "&#8805;">
+<!ENTITY gt "&#62;">
+<!ENTITY harr "&#8596;">
+<!ENTITY hArr "&#8660;">
+<!ENTITY hearts "&#9829;">
+<!ENTITY hellip "&#8230;">
+<!ENTITY Iacute "&#205;">
+<!ENTITY iacute "&#237;">
+<!ENTITY Icirc "&#206;">
+<!ENTITY icirc "&#238;">
+<!ENTITY iexcl "&#161;">
+<!ENTITY Igrave "&#204;">
+<!ENTITY igrave "&#236;">
+<!ENTITY image "&#8465;">
+<!ENTITY infin "&#8734;">
+<!ENTITY int "&#8747;">
+<!ENTITY Iota "&#921;">
+<!ENTITY iota "&#953;">
+<!ENTITY iquest "&#191;">
+<!ENTITY isin "&#8712;">
+<!ENTITY Iuml "&#207;">
+<!ENTITY iuml "&#239;">
+<!ENTITY Kappa "&#922;">
+<!ENTITY kappa "&#954;">
+<!ENTITY Lambda "&#923;">
+<!ENTITY lambda "&#955;">
+<!ENTITY lang "&#9001;">
+<!ENTITY laquo "&#171;">
+<!ENTITY larr "&#8592;">
+<!ENTITY lArr "&#8656;">
+<!ENTITY lceil "&#8968;">
+<!ENTITY ldquo "&#8220;">
+<!ENTITY le "&#8804;">
+<!ENTITY lfloor "&#8970;">
+<!ENTITY lowast "&#8727;">
+<!ENTITY loz "&#9674;">
+<!ENTITY lrm "&#8206;">
+<!ENTITY lsaquo "&#8249;">
+<!ENTITY lsquo "&#8216;">
+<!ENTITY lt "&#60;">
+<!ENTITY macr "&#175;">
+<!ENTITY mdash "&#8212;">
+<!ENTITY micro "&#181;">
+<!ENTITY middot "&#183;">
+<!ENTITY minus "&#8722;">
+<!ENTITY Mu "&#924;">
+<!ENTITY mu "&#956;">
+<!ENTITY nabla "&#8711;">
+<!ENTITY nbsp "&#160;">
+<!ENTITY ndash "&#8211;">
+<!ENTITY ne "&#8800;">
+<!ENTITY ni "&#8715;">
+<!ENTITY not "&#172;">
+<!ENTITY notin "&#8713;">
+<!ENTITY nsub "&#8836;">
+<!ENTITY Ntilde "&#209;">
+<!ENTITY ntilde "&#241;">
+<!ENTITY Nu "&#925;">
+<!ENTITY nu "&#957;">
+<!ENTITY Oacute "&#211;">
+<!ENTITY oacute "&#243;">
+<!ENTITY Ocirc "&#212;">
+<!ENTITY ocirc "&#244;">
+<!ENTITY OElig "&#338;">
+<!ENTITY oelig "&#339;">
+<!ENTITY Ograve "&#210;">
+<!ENTITY ograve "&#242;">
+<!ENTITY oline "&#8254;">
+<!ENTITY Omega "&#937;">
+<!ENTITY omega "&#969;">
+<!ENTITY Omicron "&#927;">
+<!ENTITY omicron "&#959;">
+<!ENTITY oplus "&#8853;">
+<!ENTITY or "&#8870;">
+<!ENTITY ordf "&#170;">
+<!ENTITY ordm "&#186;">
+<!ENTITY Oslash "&#216;">
+<!ENTITY oslash "&#248;">
+<!ENTITY Otilde "&#213;">
+<!ENTITY otilde "&#245;">
+<!ENTITY otimes "&#8855;">
+<!ENTITY Ouml "&#214;">
+<!ENTITY ouml "&#246;">
+<!ENTITY para "&#182;">
+<!ENTITY part "&#8706;">
+<!ENTITY permil "&#8240;">
+<!ENTITY perp "&#8869;">
+<!ENTITY Phi "&#934;">
+<!ENTITY phi "&#966;">
+<!ENTITY Pi "&#928;">
+<!ENTITY pi "&#960;">
+<!ENTITY piv "&#982;">
+<!ENTITY plusmn "&#177;">
+<!ENTITY pound "&#163;">
+<!ENTITY prime "&#8242;">
+<!ENTITY Prime "&#8243;">
+<!ENTITY prod "&#8719;">
+<!ENTITY prop "&#8733;">
+<!ENTITY Psi "&#936;">
+<!ENTITY psi "&#968;">
+<!ENTITY quot "&#34;">
+<!ENTITY radic "&#8730;">
+<!ENTITY rang "&#9002;">
+<!ENTITY raquo "&#187;">
+<!ENTITY rarr "&#8594;">
+<!ENTITY rArr "&#8658;">
+<!ENTITY rceil "&#8969;">
+<!ENTITY rdquo "&#8221;">
+<!ENTITY real "&#8476;">
+<!ENTITY reg "&#174;">
+<!ENTITY rfloor "&#8971;">
+<!ENTITY Rho "&#929;">
+<!ENTITY rho "&#961;">
+<!ENTITY rlm "&#8207;">
+<!ENTITY rsaquo "&#8250;">
+<!ENTITY rsquo "&#8217;">
+<!ENTITY sbquo "&#8218;">
+<!ENTITY Scaron "&#352;">
+<!ENTITY scaron "&#353;">
+<!ENTITY sdot "&#8901;">
+<!ENTITY sect "&#167;">
+<!ENTITY shy "&#173;">
+<!ENTITY Sigma "&#931;">
+<!ENTITY sigma "&#963;">
+<!ENTITY sigmaf "&#962;">
+<!ENTITY sim "&#8764;">
+<!ENTITY spades "&#9824;">
+<!ENTITY sub "&#8834;">
+<!ENTITY sube "&#8838;">
+<!ENTITY sum "&#8721;">
+<!ENTITY sup "&#8835;">
+<!ENTITY sup1 "&#185;">
+<!ENTITY sup2 "&#178;">
+<!ENTITY sup3 "&#179;">
+<!ENTITY supe "&#8839;">
+<!ENTITY szlig "&#223;">
+<!ENTITY Tau "&#932;">
+<!ENTITY tau "&#964;">
+<!ENTITY there4 "&#8756;">
+<!ENTITY Theta "&#920;">
+<!ENTITY theta "&#952;">
+<!ENTITY thetasym "&#977;">
+<!ENTITY thinsp "&#8201;">
+<!ENTITY THORN "&#222;">
+<!ENTITY thorn "&#254;">
+<!ENTITY tilde "&#732;">
+<!ENTITY times "&#215;">
+<!ENTITY trade "&#8482;">
+<!ENTITY Uacute "&#218;">
+<!ENTITY uacute "&#250;">
+<!ENTITY uarr "&#8593;">
+<!ENTITY uArr "&#8657;">
+<!ENTITY Ucirc "&#219;">
+<!ENTITY ucirc "&#251;">
+<!ENTITY Ugrave "&#217;">
+<!ENTITY ugrave "&#249;">
+<!ENTITY uml "&#168;">
+<!ENTITY upsih "&#978;">
+<!ENTITY Upsilon "&#933;">
+<!ENTITY upsilon "&#965;">
+<!ENTITY Uuml "&#220;">
+<!ENTITY uuml "&#252;">
+<!ENTITY weierp "&#8472;">
+<!ENTITY Xi "&#926;">
+<!ENTITY xi "&#958;">
+<!ENTITY Yacute "&#221;">
+<!ENTITY yacute "&#253;">
+<!ENTITY yen "&#165;">
+<!ENTITY Yuml "&#376;">
+<!ENTITY yuml "&#255;">
+<!ENTITY Zeta "&#918;">
+<!ENTITY zeta "&#950;">
+<!ENTITY zwj "&#8205;">
+<!ENTITY zwnj "&#8204;">`.replace(/\n/g, ' ');
+
+  /**
+   * A reasonably strict xml declaration.
+   */
+  const XML_DECL = '<?xml version="1.0" standalone="no"?>';
+
+  /**
+   * The beginning of the XML doctype declaration.
+   */
+  const DOCTYPE_START = `<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [`;
+
+  /**
+   * The end of the XML docype declaration.
+   */
+  const DOCTYPE_END = ']>';
+
+  /**
+   * A full header for an SVG XML document.
+   */
+  const SVG_XML_HEADER = `${XML_DECL}
+    ${DOCTYPE_START}${HTML_ENTITIES}${DOCTYPE_END}`;
 
     void Promise.all([...diagrams].map(renderOneMarmaid));
   });
@@ -7624,7 +7910,7 @@ a.anchor-link {
 <p><strong>M</strong>: <em>command mode</em> 'is lahter muudetakse <em>markdown</em> 'i lahtriks</p>
 <h3 id="Tab">Tab<a class="anchor-link" href="#Tab">¶</a></h3><p>Soovitab <em>edit mode</em> 'is muutujaid või lõpetab keelespetsiifilisi <em>statement</em> 'e (<em>if, elif, else, with, class</em> jne Pythonis)</p>
 <h3 id="Space">Space<a class="anchor-link" href="#Space">¶</a></h3><p>Viib märkmiku lõppu <em>command mode</em> 'is.</p>
-<h4 id="Kiirklahvide-muutmiseks-vali:-Settings--%3E-Advanced-settings-editor--%3E-Keyboard-shortcuts.-Vt-ka-kiirklahvide-spikrit">Kiirklahvide muutmiseks vali: <em>Settings</em> -&gt; <em>Advanced settings editor</em> -&gt; <em>Keyboard shortcuts</em>. Vt ka kiirklahvide <a href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/">spikrit</a><a class="anchor-link" href="#Kiirklahvide-muutmiseks-vali:-Settings--%3E-Advanced-settings-editor--%3E-Keyboard-shortcuts.-Vt-ka-kiirklahvide-spikrit">¶</a></h4>
+<h4 id="Kiirklahvide-muutmiseks-vali:-Settings--%3E-Settings-editor--%3E-Keyboard-shortcuts.-Vt-ka-kiirklahvide-spikrit">Kiirklahvide muutmiseks vali: <em>Settings</em> -&gt; <em>Settings editor</em> -&gt; <em>Keyboard shortcuts</em>. Vt ka kiirklahvide <a href="https://www.cheatography.com/weidadeyue/cheat-sheets/jupyter-notebook/">spikrit</a><a class="anchor-link" href="#Kiirklahvide-muutmiseks-vali:-Settings--%3E-Settings-editor--%3E-Keyboard-shortcuts.-Vt-ka-kiirklahvide-spikrit">¶</a></h4>
 </div>
 </div>
 </div>
@@ -7813,7 +8099,7 @@ käekõrval
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Vt ka <a href="https://docs.python.org/3.10/library/stdtypes.html#string-methods">sõne meetodid</a></p>
+<p>Vt ka <a href="https://docs.python.org/3.12/library/stdtypes.html#string-methods">sõne meetodid</a></p>
 </div>
 </div>
 </div>
@@ -8139,7 +8425,7 @@ käekõrval
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Sõnastiku meetodite kohta vt lisaks <a href="https://docs.python.org/3.10/library/stdtypes.html#dict">siit</a></p>
+<p>Sõnastiku meetodite kohta vt lisaks <a href="https://docs.python.org/3.12/library/stdtypes.html#dict">siit</a></p>
 </div>
 </div>
 </div>
@@ -8270,7 +8556,7 @@ käekõrval
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Hulga meetodite kohta vt lisaks <a href="https://docs.python.org/3.10/library/stdtypes.html#set">siit</a></p>
+<p>Hulga meetodite kohta vt lisaks <a href="https://docs.python.org/3.12/library/stdtypes.html#set">siit</a></p>
 </div>
 </div>
 </div>
@@ -8507,7 +8793,7 @@ koera
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Järjendi loomise tsükli saab ka "kokku pakkida" üherealiseks koodilõiguks:</p>
+<p>Järjendi loomise tsükli saab ka "kokku pakkida" üherealiseks koodilõiguks (ingl k <em>list comprehension</em>):</p>
 </div>
 </div>
 </div>
@@ -8875,7 +9161,7 @@ Mari, täringuvisked: [2, 4, 1] , silmade summa: 7
 <div class="jp-InputPrompt jp-InputArea-prompt">In [43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">isikunimi</span><span class="p">(</span><span class="n">eesnimi</span><span class="p">,</span> <span class="n">perekonnanimi</span><span class="p">,</span>                    <span class="c1"># kohustuslikud argumendid</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">isikunimi</span><span class="p">(</span><span class="n">eesnimi</span><span class="p">,</span> <span class="n">perekonnanimi</span><span class="p">,</span>                    <span class="c1"># kohustuslikud argumendid</span>
               <span class="n">kesknimi</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">initsiaalidena</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>    <span class="c1"># valikulised argumendid</span>
     <span class="k">if</span> <span class="n">initsiaalidena</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">kesknimi</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -9001,7 +9287,7 @@ Mari, täringuvisked: [2, 4, 1] , silmade summa: 7
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># impordime standardteegist math ruutjuure funktsiooni</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">math</span><span class="w"> </span><span class="kn">import</span> <span class="n">sqrt</span>
 
 <span class="c1"># funktsiooni väljakutsumiseks piisab funktsiooninimest</span>
 <span class="n">sqrt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
@@ -9031,7 +9317,7 @@ Mari, täringuvisked: [2, 4, 1] , silmade summa: 7
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># impordime juhuarvude genereerimise teegi</span>
-<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="c1"># kasutame funktsiooni randint() täringuviske genereerimiseks;</span>
 <span class="c1"># väljakutsumisel tuleb lisaks kasutada ka mooduli nime:</span>
@@ -9073,7 +9359,7 @@ Mari, täringuvisked: [2, 4, 1] , silmade summa: 7
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># proovime importida teeki pygame</span>
-<span class="kn">import</span> <span class="nn">pygame</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
 </pre></div>
 </div>
 </div>
@@ -9087,13 +9373,13 @@ Mari, täringuvisked: [2, 4, 1] , silmade summa: 7
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
 <pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>                       Traceback (most recent call last)
-Cell <span class="ansi-green-intense-fg ansi-bold">In[49], line 2</span>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-cyan-fg">Cell</span><span class="ansi-cyan-fg"> </span><span class="ansi-green-fg">In[49]</span><span class="ansi-green-fg">, line 2</span>
 <span class="ansi-green-fg">      1</span> <span style="color: rgb(95,135,135)"># proovime importida teeki pygame</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> <span class="ansi-bold" style="color: rgb(0,0,255)">pygame</span>
+<span class="ansi-green-fg">----&gt; </span><span class="ansi-green-fg">2</span> <span class="ansi-bold" style="color: rgb(0,135,0)">import</span> pygame
 
-<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>: No module named 'pygame'</pre>
+<span class="ansi-red-fg">ModuleNotFoundError</span>: No module named 'pygame'</pre>
 </div>
 </div>
 </div>
@@ -9105,8 +9391,8 @@ Cell <span class="ansi-green-intense-fg ansi-bold">In[49], line 2</span>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Puuduva teegi installimiseks on erinevaid võimalusi. Kui teek on olemas Anaconda lisapakettide seas, saab seda installida nii, et valite menüüst <em>Kernel</em> =&gt; <em>Conda Packages</em> , misjärel ilmub pakettide aken, mille vasakust alamaknast saate installitava paketi valida (NB! see valik on saadaval vaid Anacondas; et see tekiks ka Minicondasse, tuleb kõigepealt installida lisapakett <a href="https://anaconda.org/anaconda/nb_conda">nb_conda</a>).
-Alternatiiv on installida teek käsurea kaudu. Selleks ava <em>Launcher</em>-is <em>Other</em> -&gt; <em>Terminal</em> ning kasuta installimiseks käske <em>conda install</em> või <em>pip install</em>.</p>
+<p>Puuduva teegi installimiseks on erinevaid võimalusi. Kui teek on olemas Anaconda lisapakettide seas, saab selle installida nii, et valid menüüst <em>Kernel</em> =&gt; <em>Conda Packages</em> , misjärel ilmub pakettide aken, mille vasakust alamaknast saab installitava paketi valida (NB! see valik on saadaval vaid Anacondas; et see tekiks ka Minicondasse, tuleb kõigepealt installida lisapakett <a href="https://anaconda.org/anaconda/nb_conda">nb_conda</a>).
+Alternatiivina võib installida puuduolev teegi käsurea kaudu. Selleks ava <em>Launcher</em>-is <em>Other</em> -&gt; <em>Terminal</em> ning kasuta installimiseks käske <em>conda install</em> või <em>pip install</em>.</p>
 </div>
 </div>
 </div>
@@ -9142,9 +9428,9 @@ Alternatiiv on installida teek käsurea kaudu. Selleks ava <em>Launcher</em>-is 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre><span class="ansi-red-intense-fg ansi-bold">Signature:</span>  sqrt<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">/</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-red-intense-fg ansi-bold">Docstring:</span> Return the square root of x.
-<span class="ansi-red-intense-fg ansi-bold">Type:</span>      builtin_function_or_method</pre>
+<pre><span class="ansi-red-fg">Signature:</span>  sqrt(x, /)
+<span class="ansi-red-fg">Docstring:</span> Return the square root of x.
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method</pre>
 </div>
 </div>
 </div>
@@ -9170,12 +9456,12 @@ Alternatiiv on installida teek käsurea kaudu. Selleks ava <em>Launcher</em>-is 
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre><span class="ansi-red-intense-fg ansi-bold">Signature:</span>  random<span class="ansi-yellow-intense-fg ansi-bold">.</span>randint<span class="ansi-yellow-intense-fg ansi-bold">(</span>a<span class="ansi-yellow-intense-fg ansi-bold">,</span> b<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-red-intense-fg ansi-bold">Docstring:</span>
+<pre><span class="ansi-red-fg">Signature:</span>  random.randint(a, b)
+<span class="ansi-red-fg">Docstring:</span>
 Return random integer in range [a, b], including both end points.
         
-<span class="ansi-red-intense-fg ansi-bold">File:</span>      c:\programmid\miniconda3\envs\py310\lib\random.py
-<span class="ansi-red-intense-fg ansi-bold">Type:</span>      method</pre>
+<span class="ansi-red-fg">File:</span>      c:\programmid\miniconda3\envs\py312\lib\random.py
+<span class="ansi-red-fg">Type:</span>      method</pre>
 </div>
 </div>
 </div>
@@ -9343,13 +9629,13 @@ Selleks tuleb meil kõigepealt abstraktsel tasemel kirjeldada, millised andmed j
 <div class="jp-InputPrompt jp-InputArea-prompt">In [55]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">random</span> <span class="kn">import</span> <span class="n">randint</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">random</span><span class="w"> </span><span class="kn">import</span> <span class="n">randint</span>
 
 <span class="c1"># Täringumängijat kirjeldav klass</span>
-<span class="k">class</span> <span class="nc">Taringumangija</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Taringumangija</span><span class="p">:</span>
 
     <span class="c1"># Konstruktor: loob uue objekti vastavalt etteantud väärtustele (nimi, vanus)</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nimi</span><span class="p">,</span> <span class="n">vanus</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nimi</span><span class="p">,</span> <span class="n">vanus</span><span class="p">):</span>
         <span class="c1"># omistame väärtused objektile</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nimi</span>  <span class="o">=</span> <span class="n">nimi</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">vanus</span> <span class="o">=</span> <span class="n">vanus</span>
@@ -9360,7 +9646,7 @@ Selleks tuleb meil kõigepealt abstraktsel tasemel kirjeldada, millised andmed j
     <span class="c1"># Mängija teeb ühe täringuviske;</span>
     <span class="c1"># Jätab meelde saadud silmade arvu ning </span>
     <span class="c1"># selle, mitu viset on tehtud</span>
-    <span class="k">def</span> <span class="nf">tee_vise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tee_vise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">viskeid_jarel</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">vise</span> <span class="o">=</span> <span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nimi</span><span class="p">,</span> <span class="s1">'viskas'</span><span class="p">,</span> <span class="n">vise</span><span class="p">)</span>
@@ -9370,12 +9656,12 @@ Selleks tuleb meil kõigepealt abstraktsel tasemel kirjeldada, millised andmed j
             <span class="nb">print</span><span class="p">(</span><span class="s1">'(!) Rohkem viskeid teha ei saa!'</span><span class="p">)</span>
     
     <span class="c1"># Tagastab mängija silmade summa</span>
-    <span class="k">def</span> <span class="nf">silmade_summa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">silmade_summa</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">visked</span><span class="p">)</span>
     
     <span class="c1"># Tagastab True, kui mängija saab veel teha viskeid,</span>
     <span class="c1"># vastasel juhul False</span>
-    <span class="k">def</span> <span class="nf">saab_teha_viskeid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">saab_teha_viskeid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">viskeid_jarel</span> <span class="o">&gt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
@@ -9431,13 +9717,13 @@ Selleks tuleb meil kõigepealt abstraktsel tasemel kirjeldada, millised andmed j
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Pille viskas 2
-Kalle viskas 3
-Pille viskas 2
-Kalle viskas 5
-Pille viskas 3
+<pre>Pille viskas 3
 Kalle viskas 4
-Kalle  võitis!
+Pille viskas 4
+Kalle viskas 4
+Pille viskas 4
+Kalle viskas 2
+Pille  võitis!
 </pre>
 </div>
 </div>
@@ -9452,7 +9738,7 @@ Kalle  võitis!
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Paljud teegid, mida me siin aines kasutame, on üles ehitatud objektorienteeritud programmeerimist kasutades.
 Seega, kui te pole varasemates kursustes objektorienteeritusega kokku puutunud, siis on soovitatav end terminoloogia ja algteadmistega kurssi viia.
-Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython.com/python3-object-oriented-programming/">OOP in Python 3</a> ja <a href="https://www.tutorialspoint.com/python/python_classes_objects.htm">Python Object Oriented</a>; eesti keeles tutvustab Pythoni objektorienteeritud poolt portaali <a href="http://www.metshein.com/unit/python3-klassid-ja-objektid-ulesanne-8">metshein.com abimaterjal</a>.</p>
+Nt sissejuhatuseks teemasse sobivad <a href="https://realpython.com/python3-object-oriented-programming/">OOP in Python 3</a> ja <a href="https://www.tutorialspoint.com/python/python_classes_objects.htm">Python Object Oriented</a>.</p>
 </div>
 </div>
 </div>
@@ -9486,7 +9772,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-InputPrompt jp-InputArea-prompt">In [57]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
 <span class="n">nimi</span> <span class="o">=</span> <span class="s2">"Nipitiri"</span>
 <span class="c1"># Kontrollime mustrit: suur algustäht, millele järgneb üks või rohkem väiketähte</span>
@@ -9521,7 +9807,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">lause</span> <span class="o">=</span> <span class="s2">"Tema nimi oli Nipitiri"</span>
 <span class="c1"># Muster: üks või rohkem väiketähte, millele järgneb tühik, millele järgneb</span>
 <span class="c1"># suur algustäht, millele järgneb üks või rohkem väiketähte</span>
-<span class="n">tulemus</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">'[a-zöäüõ]+\s([A-ZÖÄÜÕ][a-zöäüõ]+)'</span><span class="p">,</span> <span class="n">lause</span><span class="p">)</span>
+<span class="n">tulemus</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s1">'[a-zöäüõ]+\s([A-ZÖÄÜÕ][a-zöäüõ]+)'</span><span class="p">,</span> <span class="n">lause</span><span class="p">)</span>
 <span class="n">tulemus</span>
 </pre></div>
 </div>
@@ -9540,29 +9826,17 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Võtame välja sulgude sees olevale mustrile vastava osa sõnest</span>
 <span class="n">tulemus</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
-<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>'Nipitiri'</pre>
 </div>
 </div>
 </div>
@@ -9583,11 +9857,11 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">nimi</span> <span class="o">=</span> <span class="s2">"Nipitiri"</span>
-<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">'(\S\S)(\S\S)(\S\S)(\S\S)'</span><span class="p">,</span> <span class="s1">'</span><span class="se">\\</span><span class="s1">1-</span><span class="se">\\</span><span class="s1">3-</span><span class="se">\\</span><span class="s1">2-</span><span class="se">\\</span><span class="s1">4'</span><span class="p">,</span> <span class="n">nimi</span><span class="p">)</span>
+<span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(\S\S)(\S\S)(\S\S)(\S\S)'</span><span class="p">,</span> <span class="s1">'</span><span class="se">\\</span><span class="s1">1-</span><span class="se">\\</span><span class="s1">3-</span><span class="se">\\</span><span class="s1">2-</span><span class="se">\\</span><span class="s1">4'</span><span class="p">,</span> <span class="n">nimi</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -9598,7 +9872,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[60]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[59]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>'Ni-ti-pi-ri'</pre>
 </div>
@@ -9618,12 +9892,12 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 </ul>
 <p>Detailsemalt regulaaravaldiste süntaksi ja metasümbolite kohta vt:</p>
 <ul>
-<li><a href="https://docs.python.org/3.10/howto/regex.html#regex-howto">https://docs.python.org/3.10/howto/regex.html#regex-howto</a></li>
-<li><a href="https://docs.python.org/3.10/library/re.html#regular-expression-syntax">https://docs.python.org/3.10/library/re.html#regular-expression-syntax</a></li>
+<li><a href="https://docs.python.org/3.12/howto/regex.html#regex-howto">https://docs.python.org/3.12/howto/regex.html#regex-howto</a></li>
+<li><a href="https://docs.python.org/3.12/library/re.html#regular-expression-syntax">https://docs.python.org/3.12/library/re.html#regular-expression-syntax</a></li>
 </ul>
 <p>Regulaaravaldise meetoditest annab ülevaate:</p>
 <ul>
-<li><a href="https://docs.python.org/3.10/library/re.html#module-contents">https://docs.python.org/3.10/library/re.html#module-contents</a></li>
+<li><a href="https://docs.python.org/3.12/library/re.html#module-contents">https://docs.python.org/3.12/library/re.html#module-contents</a></li>
 </ul>
 </div>
 </div>
@@ -9644,7 +9918,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s2">"habemeajaja"</span>
@@ -9693,11 +9967,11 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [62]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># impordime loendamise klassi Counter</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="n">word</span> <span class="o">=</span> <span class="s2">"habemeajaja"</span>
 <span class="c1"># Loome uue loenduri koos listiga, milles tuleb loendus teha:</span>
@@ -9742,7 +10016,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [63]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [62]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Tühikutega joondamine</span>
@@ -9772,7 +10046,7 @@ Nt inglisekeelseks sissejuhatuseks teemasse sobivad: <a href="https://realpython
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [64]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Ümardamine</span>
@@ -9823,7 +10097,7 @@ Kui sõne ette (enne esimesi jutumärke) lisada <code>f</code>, siis muutub see 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Tühikutega joondamine f-strings abil</span>
@@ -9864,7 +10138,7 @@ Kui sõne ette (enne esimesi jutumärke) lisada <code>f</code>, siis muutub see 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Avaldise väärtuse ümardamine</span>
@@ -9892,7 +10166,7 @@ Kui sõne ette (enne esimesi jutumärke) lisada <code>f</code>, siis muutub see 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [67]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Muutuja väärtuse ümardamine</span>
@@ -10046,11 +10320,11 @@ Kui sõne ette (enne esimesi jutumärke) lisada <code>f</code>, siis muutub see 
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p><strong>Kuidas:</strong></p>
 <ol>
-<li><p>kas üksik sõna algab või lõpeb jutumärkidega: kontrollimiseks võib kasutada nt meetodeid <a href="https://docs.python.org/3.8/library/stdtypes.html#str.startswith"><code>startswith()</code></a> ja <a href="https://docs.python.org/3.8/library/stdtypes.html#str.endswith"><code>endswith()</code></a>;</p>
+<li><p>kas üksik sõna algab või lõpeb jutumärkidega: kontrollimiseks võib kasutada nt meetodeid <a href="https://docs.python.org/3.12/library/stdtypes.html#str.startswith"><code>startswith()</code></a> ja <a href="https://docs.python.org/3.12/library/stdtypes.html#str.endswith"><code>endswith()</code></a>;</p>
 </li>
 <li><p>jutumärkide sees vs jutumärkidest väljas: tehke tsükkel üle kõigi sõnade; igal sammul kontrollige, kas sõna alguses või lõpus on vastav jutumärk, ning kontrolli tulemused paigutage abimuutujasse; vastavalt abimuutuja väärtusele muutke ka sõne ise kas suuretäheliseks või väiketäheliseks;</p>
 </li>
-<li><p>sõnede muutmine suuretäheliseks: <a href="https://docs.python.org/3.8/library/stdtypes.html#str.upper"><code>upper()</code></a>, väiketäheliseks <a href="https://docs.python.org/3.8/library/stdtypes.html#str.lower"><code>lower()</code></a>;</p>
+<li><p>sõnede muutmine suuretäheliseks: <a href="https://docs.python.org/3.12/library/stdtypes.html#str.upper"><code>upper()</code></a>, väiketäheliseks <a href="https://docs.python.org/3.12/library/stdtypes.html#str.lower"><code>lower()</code></a>;</p>
 </li>
 </ol>
 </div>
@@ -10063,7 +10337,7 @@ Kui sõne ette (enne esimesi jutumärke) lisada <code>f</code>, siis muutub see 
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Boonus%C3%BClesanne-1:-Alternatiivne-lahendusk%C3%A4ik-%C3%9Clesandele-2-(0,5p)">Boonusülesanne 1: Alternatiivne lahenduskäik Ülesandele 2 (0,5p)<a class="anchor-link" href="#Boonus%C3%BClesanne-1:-Alternatiivne-lahendusk%C3%A4ik-%C3%9Clesandele-2-(0,5p)">¶</a></h3><p>Esitage Ülesandele 2 alternatiivne lahenduskäik, kus jutumärkide <code>«</code> ja <code>»</code> vahel oleva teksisisu muutmine suuretäheliseks (nt sõnest <code>«Ristiisa»</code> sõne <code>«RISTIISA»</code> saamine) tehakse regulaaravaldise abil, nt funktsiooni <a href="https://docs.python.org/3.10/library/re.html#re.sub">re.sub()</a> kasutades. Lahendus peab olema üldistav, st ei piisa lahendusest, mis töötab ainult konkreetse sõne <strong><code>tekst1</code></strong> peal, -- peaks töötama suvalisel sõnel, kus on mingi tekstisisu jutumärkide <code>«</code> ja <code>»</code> vahel.</p>
+<h3 id="Boonus%C3%BClesanne-1:-Alternatiivne-lahendusk%C3%A4ik-%C3%9Clesandele-2-(0,5p)">Boonusülesanne 1: Alternatiivne lahenduskäik Ülesandele 2 (0,5p)<a class="anchor-link" href="#Boonus%C3%BClesanne-1:-Alternatiivne-lahendusk%C3%A4ik-%C3%9Clesandele-2-(0,5p)">¶</a></h3><p>Esitage Ülesandele 2 alternatiivne lahenduskäik, kus jutumärkide <code>«</code> ja <code>»</code> vahel oleva teksisisu muutmine suuretäheliseks (nt sõnest <code>«Ristiisa»</code> sõne <code>«RISTIISA»</code> saamine) tehakse regulaaravaldise abil, nt funktsiooni <a href="https://docs.python.org/3.12/library/re.html#re.sub">re.sub()</a> kasutades. Lahendus peab olema üldistav, st ei piisa lahendusest, mis töötab ainult konkreetse sõne <strong><code>tekst1</code></strong> peal, -- peaks töötama suvalisel sõnel, kus on mingi tekstisisu jutumärkide <code>«</code> ja <code>»</code> vahel.</p>
 </div>
 </div>
 </div>
