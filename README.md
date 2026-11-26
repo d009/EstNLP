@@ -12,7 +12,7 @@
  6. praktikum: Json andmeformaat ja märgendatud tekstide salvestamine failidesse / laadimine failidest. Ajaväljendite tuvastamine ja visualiseerimine
  7. praktikum: Wordnet. Heatmap'i loomine. Word2vec. Pdf-i lugemine Pythonis
  8. praktikum: Süntaktiline analüüs. Univesal Dependencies ja CoNLL-U formaat. XML ja HTML sisendi lugemine
- 9. praktikum: Tekstitöötluse koodi pakendamine märgendajate abil. Osalausestamine. Lisad: Sissejuhatus objekt-orienteeritud programmeerimisse. Märgenduste visualiseerimine II
+ 9. praktikum: Tekstitöötluse koodi pakendamine märgendajate abil. Osalausestamine. Lisad: Sissejuhatus objekt-orienteeritud programmeerimisse. 
  10. praktikum: Veebiga suhtlemine ja tekstiandmete kogumine veebist. Lisad: Verbiahelate tuvastamine. Serialiseerimine.
  11. praktikum: Info eraldamine. Suurte andmetega töötamine. Twitter'i säutsude analüüs. Vikipeedia artiklite töötlus. Fraasimärgendaja ja grammatikad
  12. praktikum: Dokumentide vektoresitus, klasterdamine ja visualiseerimine. Lisad: Optilise tekstituvastuse katsetamine. Berti katsetamine
